@@ -155,6 +155,6 @@ TEST(Odd_Even_Batcher_Merge, Merge_Big_Vec) {
   std::sort(vec2.begin(), vec2.end());
   std::sort(vec3.begin(), vec3.end());
 
-  std::vector<int> res = merge_batcher(vec1, vec2);
+  std::vector<int> res = Batcher(vec1, vec2);
   ASSERT_EQ(res, vec3);
 }
