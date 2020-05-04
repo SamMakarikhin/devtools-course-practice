@@ -33,7 +33,7 @@ TEST(Odd_Even_Batcher_Merge, Merge_Vec_One_Size_Elem) {
   ASSERT_EQ(res, vec3);
 }
 
-TEST(Odd_Even_Batcher_Merge, Merge_Vector_With_Negative_Elem) {
+TEST(Odd_Even_Batcher_Merge, Merge_Vec_With_Negative_Elem) {
   std::vector<int> vec1{ -17, -3, 5, 2 };
   std::vector<int> vec2{ -11, 3, 5, 23, 51 };
   std::vector<int> res{ -17, -11, -3, 2, 5, 3, 5, 23, 51 };
@@ -129,5 +129,32 @@ TEST(Odd_Even_Batcher_Merge, Merge_Vec_Even_Length) {
   std::sort(vec3.begin(), vec3.end());
 
   std::vector<int> res = Batcher(vec1, vec2);
+  ASSERT_EQ(res, vec3);
+}
+
+TEST(Odd_Even_Batcher_Merge, Merge_Big_Vec) {
+  std::mt19937 gen;
+  gen.seed(static_cast<unsigned int>(time(0)));
+
+  std::size_t length1 = 700;
+  std::size_t length2 = 700;
+  std::vector<int> vec1(length1);
+  std::vector<int> vec2(length2);
+
+  for (auto& val : vec1) {
+    val = gen() % 1000;
+  }
+  for (auto& val : vec2) {
+    val = gen() % 1000;
+  }
+
+  std::vector<int> vec3(length1 + length2);
+  std::copy(vec1.begin(), vec1.end(), vec3.begin());
+  std::copy(vec2.begin(), vec2.end(), vec3.begin() + length1);
+  std::sort(vec1.begin(), vec1.end());
+  std::sort(vec2.begin(), vec2.end());
+  std::sort(vec3.begin(), vec3.end());
+
+  std::vector<int> res = merge_batcher(vec1, vec2);
   ASSERT_EQ(res, vec3);
 }

@@ -5,8 +5,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <cmath>
-#include <cstring>
 
 
 std::vector<int> Batcher(std::vector<int> vec1,
