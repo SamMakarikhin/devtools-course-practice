@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <vector>
 
-
 std::vector<int> Batcher(std::vector<int> vec1,
   std::vector<int> vec2) {
   vec1 = Shuffle(vec1);
