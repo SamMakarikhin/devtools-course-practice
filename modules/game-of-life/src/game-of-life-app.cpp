@@ -21,7 +21,7 @@ void GameOfLifeApp::help(const char* appname, const char* message) {
 }
 
 bool GameOfLifeApp::validateArguments(int argc, const char** argv) {
-  if (argc != mainGrid.GetHeight() * mainGrid.GetWight() + 4) {
+  if (static_cast<uint32_t>(argc) != mainGrid.GetHeight() * mainGrid.GetWight() + 4) {
     message_ += "ERROR: You need to fill in the grid completely\n";
     message_ += "and enter the number of steps\n";
     return false;
@@ -75,8 +75,8 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
     mainGrid = mainGrid.NextGrid();
 
   std::ostringstream stream;
-  for (int j = 0; j < mainGrid.GetHeight(); ++j) {
-    for (int i = 0; i < mainGrid.GetWight(); ++i)
+  for (uint32_t j = 0; j < mainGrid.GetHeight(); ++j) {
+    for (uint32_t i = 0; i < mainGrid.GetWight(); ++i)
       stream << mainGrid.GetCell(i, j);
     stream << std::endl;
   }
