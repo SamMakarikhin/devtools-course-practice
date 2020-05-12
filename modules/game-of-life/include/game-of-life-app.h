@@ -7,11 +7,11 @@
 #include <string>
 
 class GameOfLifeApp {
-public:
+ public:
   GameOfLifeApp();
   std::string operator()(int argc, const char** argv);
 
-private:
+ private:
   void help(const char* appname, const char* message = "");
   bool validateArguments(int argc, const char** argv);
   std::string message_;
