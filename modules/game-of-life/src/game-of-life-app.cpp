@@ -1,5 +1,8 @@
-#include "..\include\game-of-life-app.h"
-#include <iostream>
+// Copyright 2020 Kriukov Dmitry
+
+#include "include\game-of-life-app.h"
+
+#include <string>
 #include <sstream>
 
 GameOfLifeApp::GameOfLifeApp(): message_(""), mainGrid() {}
@@ -17,9 +20,8 @@ void GameOfLifeApp::help(const char* appname, const char* message) {
     "Example: \n" + "3 2 . * . * . * 3";
 }
 
-bool GameOfLifeApp::validateArguments(int argc, const char** argv)
-{
-  if (argc != mainGrid.GetHeight() * mainGrid.GetWight() + 4 ) {
+bool GameOfLifeApp::validateArguments(int argc, const char** argv) {
+  if (argc != mainGrid.GetHeight() * mainGrid.GetWight() + 4) {
     message_ += "ERROR: You need to fill in the grid completely\n";
     message_ += "and enter the number of steps\n";
     return false;
@@ -34,7 +36,7 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
     help(argv[0], "This is a game of life application.\n\n");
     return message_;
   }
-  if(argc < 3) {
+  if (argc < 3) {
     return std::string("Enter width and hight");
   }
 
@@ -53,9 +55,9 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
   for (int j = 0; j < hight; ++j)
     for (int i = 0; i < width; ++i) {
       const char arg = *argv[i + j * width + 3];
-      if((arg == '.') || (arg == '*'))
+      if ((arg == '.') || (arg == '*')) {
         mainGrid.SetCell(i, j, arg);
-      else {
+      } else {
         message_ += "Wrong grid elements format:\n";
         message_ += "A dead cell is written as '.'\n";
         message_ += "A live cell is written as '*'\n";
@@ -73,7 +75,7 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
     mainGrid = mainGrid.NextGrid();
 
   std::ostringstream stream;
-  for (int j = 0; j < mainGrid.GetHeight(); ++j){
+  for (int j = 0; j < mainGrid.GetHeight(); ++j) {
     for (int i = 0; i < mainGrid.GetWight(); ++i)
       stream << mainGrid.GetCell(i, j);
     stream << std::endl;
