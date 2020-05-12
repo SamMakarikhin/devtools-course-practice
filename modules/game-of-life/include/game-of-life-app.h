@@ -4,7 +4,6 @@
 #define MODULES_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_APP_H_
 
 #include "include/game-of-life.h"
-#include <string>
 
 class GameOfLifeApp {
  public:

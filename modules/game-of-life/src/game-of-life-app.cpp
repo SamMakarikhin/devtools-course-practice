@@ -1,6 +1,6 @@
 // Copyright 2020 Kriukov Dmitry
 
-#include "include\game-of-life-app.h"
+#include "include/game-of-life-app.h"
 
 #include <string>
 #include <sstream>
