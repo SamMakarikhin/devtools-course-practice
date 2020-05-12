@@ -5,6 +5,8 @@
 
 #include "include/game-of-life.h"
 
+#include <string>
+
 class GameOfLifeApp {
  public:
   GameOfLifeApp();
