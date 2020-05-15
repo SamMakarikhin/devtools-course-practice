@@ -45,7 +45,8 @@ void priority_queue::insert(node _node) {
 }
 
 int* priority_queue::extract_minimum() {
-    if (is_empty()) return nullptr;
+    if (is_empty()) 
+        return nullptr;
 
     std::list<node>::iterator min = get_min_it();
 
@@ -53,15 +54,33 @@ int* priority_queue::extract_minimum() {
 }
 
 int* priority_queue::extract_maximum() {
-    if (is_empty()) return nullptr;
+    if (is_empty()) 
+        return nullptr;
 
     std::list<node>::iterator max = get_max_it();
 
     return &max->data;
 }
 
+int* priority_queue::extract_key(int key) {
+    if (is_empty()) 
+        return nullptr;
+
+    std::list<node>::iterator it = queue.begin();
+
+    while (it != queue.end()) {
+        if (it->key == key) {
+            return &it->data;
+        }
+        ++it;
+    }
+
+    return nullptr;
+}
+
 bool priority_queue::deleteMin() {
-    if (is_empty()) return false;
+    if (is_empty()) 
+        return false;
 
     std::list<node>::iterator min = get_min_it();
 
@@ -71,7 +90,8 @@ bool priority_queue::deleteMin() {
 }
 
 bool priority_queue::deleteMax() {
-    if (is_empty()) return false;
+    if (is_empty()) 
+        return false;
 
     std::list<node>::iterator max = get_max_it();
 
