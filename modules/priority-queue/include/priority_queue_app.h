@@ -5,12 +5,12 @@
 
 #include <string>
 
-class pq_app {
-public:
+class pq_app { 
+ public:
     pq_app();
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
