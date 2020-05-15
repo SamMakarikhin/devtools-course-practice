@@ -1,4 +1,4 @@
-// Copyright 2020 Myshkin Andrey
+// Copyright 2020 Pauzin Leonid & Myshkin Andrey
 
 #include <gtest/gtest.h>
 #include "include/template_heap.h"
