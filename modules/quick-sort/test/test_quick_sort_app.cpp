@@ -11,7 +11,6 @@ using std::string;
 
 class QuickSortTest : public ::testing::Test {
  protected:
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -52,8 +51,8 @@ TEST_F(QuickSortTest, Can_Sort_Array__5) {
 }
 
 TEST_F(QuickSortTest, Can_Sort_Array_20) {
-  vector<string> args = { "9", "4", "5", "2", "7", 
-    "6", "23", "1", "12", "34", "43", "44", "3", "32", "54", 
+  vector<string> args = { "9", "4", "5", "2", "7",
+    "6", "23", "1", "12", "34", "43", "44", "3", "32", "54",
     "37", "25", "87", "53", "123" };
 
   Act(args);
