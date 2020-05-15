@@ -21,7 +21,6 @@ std::vector<int> Batcher(std::vector<int> in_vec1,
   std::vector<int> OddMerge(OddEvenMerge(odd1, odd2));
   std::vector<int> EvenMerge(OddEvenMerge(even1, even2));
   std::vector<int> res(Unshuffle(OddMerge, EvenMerge));
-
   return res;
 }
 
