@@ -1,4 +1,4 @@
-// Copyright 2020 Pauzin Leonid
+// Copyright 2020 Myshkin Andrey
 
 #include <gtest/gtest.h>
 
