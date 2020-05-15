@@ -5,7 +5,7 @@
 
 #include <string>
 
-class pq_app { 
+class pq_app {
  public:
     pq_app();
     std::string operator()(int argc, const char** argv);

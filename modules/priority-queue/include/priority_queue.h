@@ -6,7 +6,7 @@
 #include <iostream>
 #include <list>
 
-class node { 
+class node {
  public:
     node();
     explicit node(int _key, int _data);
@@ -14,7 +14,7 @@ class node {
     int data;
 };
 
-class priority_queue { 
+class priority_queue {
  private:
     std::list<node> queue;
     std::list<node>::iterator get_min_it();
