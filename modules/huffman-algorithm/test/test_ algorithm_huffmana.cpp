@@ -8,30 +8,27 @@
 TEST(AlgorithmHuffmanaTest, Can_Create_Histoghram_1) {
   // Arrange
   std::string text = "AAASREESR";
+  std::vector<int> expected = { 3, 2, 2, 2};
 
   // Act
   std::vector<int> v = HuffmanTree().CreateHistogram(text);
+  std::vector<int> res = { v['A'], v['S'], v['R'], v['E'] };
 
   // Assert
-  EXPECT_EQ(3, v['A']);
-  EXPECT_EQ(2, v['S']);
-  EXPECT_EQ(2, v['R']);
-  EXPECT_EQ(2, v['E']);
+  EXPECT_EQ(expected, res);
 }
 
 TEST(AlgorithmHuffmanaTest, Can_Create_Histoghram_2) {
   // Arrange
   std::string text = "AAARAARRREREESRR";
+  std::vector<int> expected = { 5, 1, 7, 3};
 
   // Act
   std::vector<int> v = HuffmanTree().CreateHistogram(text);
-  HuffmanTree a(text);
+  std::vector<int> res = { v['A'], v['S'], v['R'], v['E']};
 
   // Assert
-  EXPECT_EQ(5, v['A']);
-  EXPECT_EQ(1, v['S']);
-  EXPECT_EQ(7, v['R']);
-  EXPECT_EQ(3, v['E']);
+  EXPECT_EQ(expected, res);
 }
 
 

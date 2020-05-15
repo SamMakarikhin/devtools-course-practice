@@ -5,18 +5,18 @@
 #include <vector>
 #include <stack>
 
-HuffmanTree::HuffmanTree(std::string s) {
-  std::vector<int> hist = CreateHistogram(s);
+HuffmanTree::HuffmanTree(std::string str) {
+  std::vector<int> hist = CreateHistogram(str);
   std::vector<HuffmanNode*> queue(256);
   for (int i = 0; i < 256; i++) {
     queue[i] = new HuffmanNode();
-    queue[i]->val = i;
+    queue[i]->value = i;
     queue[i]->freq = hist[i];
   }
   SortQueue(&queue, hist);
   while (queue.size() > 2) {
     HuffmanNode* node = new HuffmanNode();
-    node->val = -1;
+    node->value = -1;
     node->right = queue.back();
     queue.pop_back();
     node->left = queue.back();
@@ -28,7 +28,7 @@ HuffmanTree::HuffmanTree(std::string s) {
     queue.insert(i, node);
   }
     root = new HuffmanNode();
-    root->val = -1;
+    root->value = -1;
     root->right = queue.back();
     queue.pop_back();
     root->left = queue.back();
@@ -38,41 +38,41 @@ HuffmanTree::HuffmanTree(std::string s) {
 
 void HuffmanTree::SortQueue(std::vector<HuffmanNode*>* queue,
   const std::vector<int> & hist) {
-for (int j = 0; j < 255; j++) {
-  int f = 0;
-  for (int i = 0; i < 255 - j; i++) {
-    if (hist[(*queue)[i]->val] < hist[(*queue)[i + 1]->val]) {
-      HuffmanNode* buff = (*queue)[i];
-      (*queue)[i] = (*queue)[i + 1];
-      (*queue)[i + 1] = buff;
-      f = 1;
+  for (int j = 0; j < 255; j++) {
+    int f = 0;
+    for (int i = 0; i < 255 - j; i++) {
+      if (hist[(*queue)[i]->value] < hist[(*queue)[i + 1]->value]) {
+        HuffmanNode* buff = (*queue)[i];
+        (*queue)[i] = (*queue)[i + 1];
+        (*queue)[i + 1] = buff;
+        f = 1;
+      }
     }
+    if (f == 0)
+      break;
   }
-  if (f == 0)
-    break;
-}
 }
 
-std::vector <std::string> HuffmanTree::Encode(std::string s) {
-  std::vector <std::string> str;
-  for (unsigned int i = 0; i < s.size(); i++) {
-    str.push_back(encodingTable[s[i]]);
+std::vector <std::string> HuffmanTree::Encode(std::string str) {
+  std::vector <std::string> rez;
+  for (unsigned int i = 0; i < str.size(); i++) {
+    rez.push_back(encodingTable[str[i]]);
   }
-  return str;
+  return rez;
 }
 
-std::vector<int> HuffmanTree::CreateHistogram(std::string s) {
+std::vector<int> HuffmanTree::CreateHistogram(std::string str) {
   std::vector<int> hisogram(256);
 
-  for (std::string::iterator it = s.begin();
-    it != s.end(); ++it) {
+  for (std::string::iterator it = str.begin();
+    it != str.end(); ++it) {
     hisogram[*it]++;
   }
   return hisogram;
 }
 
-std::string HuffmanTree::getSimbolCode(char val) {
-  return encodingTable[val];
+std::string HuffmanTree::getSimbolCode(char value) {
+  return encodingTable[value];
 }
 
 void HuffmanTree::CreateEncodingTable() {
@@ -87,7 +87,7 @@ void HuffmanTree::CreateEncodingTable(HuffmanNode* node,
     CreateEncodingTable(node->left, code + direct, std::string("0"));
     CreateEncodingTable(node->right, code + direct, std::string("1"));
   } else {
-    encodingTable[node->val] = code + direct;
+    encodingTable[node->value] = code + direct;
   }
 }
 
