@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class pq_app_Test : public ::testing::Test {
-protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -36,7 +36,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     pq_app app_;
     string output_;
 };
@@ -58,7 +58,7 @@ TEST_F(pq_app_Test, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST_F(pq_app_Test, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "1.1", "1.2",  "2.1", "2.2", "3.1", "3.2","extractMin" };
+    vector<string> args = { "1.1", "1.2", "2.1", "2.2", "3.1", "3.2", "extractMin" };
 
     Act(args);
 
@@ -66,7 +66,7 @@ TEST_F(pq_app_Test, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(pq_app_Test, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = { "1", "100",  "2", "2", "3", "3", "wrong" };
+    vector<string> args = { "1", "100", "2", "2", "3", "3", "wrong" };
 
     Act(args);
 
@@ -74,7 +74,7 @@ TEST_F(pq_app_Test, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(pq_app_Test, Can_Return_Max_Value_Key) {
-    vector<string> args = { "1", "100",  "2", "2", "3", "3", "extractMin" };
+    vector<string> args = { "1", "100", "2", "2", "3", "3", "extractMin" };
 
     Act(args);
 
@@ -82,7 +82,7 @@ TEST_F(pq_app_Test, Can_Return_Max_Value_Key) {
 }
 
 TEST_F(pq_app_Test, Can_Return_Min_Value_Key) {
-    vector<string> args = { "1", "1",  "2", "2", "3", "300", "extractMax" };
+    vector<string> args = { "1", "1", "2", "2", "3", "300", "extractMax" };
 
     Act(args);
 

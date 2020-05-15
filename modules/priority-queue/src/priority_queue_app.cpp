@@ -18,7 +18,8 @@ void pq_app::help(const char* appname, const char* message) {
         "This is a priority queue application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
 
-        "  $ " + appname + " <key1> <data1> <key2> <data2> <key3> <data3> <operation>\n\n" +
+        "  $ " + appname + " <key1> <data1> <key2> <data2> "
+        + "<key3> <data3> <operation>\n\n" +
 
         "Where <key> is priority of <data> value, " +
         "and <operation> is one of 'extractMax', 'extractMin'.\n";
@@ -28,8 +29,7 @@ bool pq_app::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 8) {
+    } else if (argc != 8) {
         help(argv[0], "ERROR: Should be 7 arguments.\n\n");
         return false;
     }
@@ -38,7 +38,7 @@ bool pq_app::validateNumberOfArguments(int argc, const char** argv) {
 
 int parseInt(const char* arg) {
     char* end;
-    int value = strtol(arg, &end,0);
+    int value = strtol(arg, &end, 0);
 
     if (end[0]) {
         throw std::string("Wrong number format!");
@@ -94,8 +94,7 @@ std::string pq_app::operator()(int argc, const char** argv) {
     if (args.operation == "extractMin") {
         output = *(pq.extract_minimum());
         stream << "Min value = " << output;
-    }
-    else  if (args.operation == "extractMax") {
+    } else  if (args.operation == "extractMax") {
         output = *(pq.extract_maximum());
         stream << "Max value = " << output;
     }

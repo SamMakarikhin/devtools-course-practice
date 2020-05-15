@@ -5,7 +5,7 @@
 #include "include/priority_queue_app.h"
 
 int main(int argc, char const **argv) {
-  pq_app application;
-  std::cout << application(argc, argv);
-  return 0;
+    pq_app application;
+    std::cout << application(argc, argv);
+    return 0;
 }
