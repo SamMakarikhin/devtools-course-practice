@@ -51,11 +51,9 @@ std::string parseOperation(const char* arg) {
     std:: string operation;
     if (strcmp(arg, "extractMin") == 0) {
         operation = "extractMin";
-    }
-    else if (strcmp(arg, "extractMax") == 0) {
+    } else if (strcmp(arg, "extractMax") == 0) {
         operation = "extractMax";
-    }
-    else {
+    } else {
         throw std::string("Wrong format!");
     }
     return operation;
