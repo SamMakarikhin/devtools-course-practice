@@ -41,7 +41,7 @@ add_test(
     COMMAND ${APPLICATION} 1 arabic_to_roman 25
 )
 set_tests_properties (${prefix}_can_Convert_Arabic_To_Roman PROPERTIES
-    PASS_REGULAR_EXPRESSION "25 -> XXV"
+    PASS_REGULAR_EXPRESSION "Results of the conversion: 25 -> XXV"
     LABELS "${MODULE}")
 
 add_test(
@@ -49,7 +49,7 @@ add_test(
     COMMAND ${APPLICATION} 1 roman_to_arabic XXXII
 )
 set_tests_properties (${prefix}_can_Convert_Roman_To_Arabic PROPERTIES
-    PASS_REGULAR_EXPRESSION "XXXII -> 32"
+    PASS_REGULAR_EXPRESSION "Results of the conversion: XXXII -> 32"
     LABELS "${MODULE}")
 
 add_test(
@@ -57,7 +57,7 @@ add_test(
     COMMAND ${APPLICATION} 2 arabic_to_roman 14 arabic_to_roman 7
 )
 set_tests_properties (${prefix}_can_Convert_Two_Number_A_To_R PROPERTIES
-    PASS_REGULAR_EXPRESSION "14 -> XIV   7 -> VII"
+    PASS_REGULAR_EXPRESSION "Results of the conversion: 14 -> XIV   7 -> VII"
     LABELS "${MODULE}")
 
 add_test(
@@ -65,7 +65,7 @@ add_test(
     COMMAND ${APPLICATION} 2 roman_to_arabic XIV roman_to_arabic VII
 )
 set_tests_properties (${prefix}_can_Convert_Two_Number_R_To_A PROPERTIES
-    PASS_REGULAR_EXPRESSION "XIV -> 14   VII -> 7"
+    PASS_REGULAR_EXPRESSION "Results of the conversion: XIV -> 14   VII -> 7"
     LABELS "${MODULE}")
 
 add_test(
@@ -73,5 +73,5 @@ add_test(
     COMMAND ${APPLICATION} 2 arabic_to_roman 4 roman_to_arabic XVI
 )
 set_tests_properties (${prefix}_can_Convert_Two_Number_Diff_Mode PROPERTIES
-    PASS_REGULAR_EXPRESSION "4 -> IV   XVI -> 16"
+    PASS_REGULAR_EXPRESSION "Results of the conversion: 4 -> IV   XVI -> 16"
     LABELS "${MODULE}")

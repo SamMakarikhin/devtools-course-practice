@@ -56,3 +56,10 @@ TEST_F(RAConvertCalculatorTest, Is_Checking_Number_Of_Arguments) {
 
     Assert("ERROR: incorrect number of parameters. Please try again.*");
 }
+TEST_F(RAConvertCalculatorTest, Can_Convert_Arabic_To_Roman) {
+    vector<string> args = {"1", "arabic_to_roman", "5"};
+
+    Act(args);
+
+    Assert("Results of the conversion: 5 -> V");
+}
