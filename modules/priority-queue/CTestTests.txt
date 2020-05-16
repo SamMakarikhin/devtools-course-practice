@@ -48,14 +48,14 @@ add_test(
     NAME ${prefix}_can_Return_Min_Value_Key
     COMMAND ${APPLICATION} 1 100 2 2 3 3 extractMin
 )
-set_tests_properties (${prefix}_Can_Return_Min_Value_Key PROPERTIES
+set_tests_properties (${prefix}_can_Return_Min_Value_Key PROPERTIES
     PASS_REGULAR_EXPRESSION "Min value = 100"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Return_Max_Value_Key
-    COMMAND ${APPLICATION} 1 100 2 2 3 300 extractMax
+    COMMAND ${APPLICATION} 1 1 2 2 3 300 extractMax
 )
-set_tests_properties (${prefix}_Can_Return_Max_Value_Key PROPERTIES
+set_tests_properties (${prefix}_can_Return_Max_Value_Key PROPERTIES
     PASS_REGULAR_EXPRESSION "Max value = 300"
     LABELS "${MODULE}")
