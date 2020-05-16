@@ -92,16 +92,16 @@ std::string RomanArabicConvertCalculator::
     try {
         stream << "Results of the conversion: ";
         for (int i = 0; i < args.count_of_elements; i++) {
-            int res_arabic;
             if (i != 0)
                 stream << "   ";
-            std::string res_roman;
             if (args.elements[i].first == "arabic_to_roman") {
+                std::string res_roman;
                 res_roman = converter.arabicToRoman
                     (std::stoi(args.elements[i].second));
                 stream << args.elements[i].second << " -> ";
                 stream << res_roman;
             } else {
+                int res_arabic;
                 res_arabic = converter.romanToArabic(args.elements[i].second);
                 stream << args.elements[i].second << " -> ";
                 stream << res_arabic;
