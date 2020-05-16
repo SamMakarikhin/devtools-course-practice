@@ -72,5 +72,4 @@ TEST_F(MortgageCalculatorTest, Can_Get_MonthlyPayment) {
 
     Assert("c_cost = 2000000 d_downPayment = 0 c_creditTerm = 120 i_interestRate = 15 payment = 32266");
 }
-
-          
+        

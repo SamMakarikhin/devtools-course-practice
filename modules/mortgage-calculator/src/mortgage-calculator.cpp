@@ -1,8 +1,5 @@
 // Copyright 2020 Savin Dmitry
 
-#include "include/MortgageCalc.h"
-#include "include/mortgage-calculator.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -10,6 +7,8 @@
 #include <string>
 #include <sstream>
 
+#include "include/MortgageCalc.h"
+#include "include/mortgage-calculator.h"
 
 MortgageCalculator::MortgageCalculator() : message_("") {}
 
