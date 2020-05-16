@@ -1,4 +1,4 @@
-// Copyright 2020 Petrov Anton
+// Copyright 2020 Petrov Anton & Savin Dmitry
 
 #include <gtest/gtest.h>
 
@@ -101,4 +101,24 @@ TEST(CalculatorTest, Create_Copy_Constructor) {
     ASSERT_NO_THROW(mortgage2.getDownPayment());
     ASSERT_NO_THROW(mortgage2.getCreditTerm());
     ASSERT_NO_THROW(mortgage2.getInterestRate());
+}
+
+TEST(CalculatorTest, Money_Amount_Comparison) {
+    // Arrange
+    int num = 1000;
+    // Act
+    MortgageCalc mortgage(2000000, 0, 10, 15);
+    mortgage.calc();
+    // Assert
+    ASSERT_LT(num, mortgage.getMonthlyPayment());
+}
+
+TEST(CalculatorTest, Money_Amount_Comparison_Version) {
+    // Arrange
+    int num = 10000000;
+    // Act
+    MortgageCalc mortgage(2000000, 0, 5, 15);
+    mortgage.calc();
+    // Assert
+    ASSERT_GT(num, mortgage.getMonthlyPayment());
 }

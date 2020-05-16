@@ -1,4 +1,4 @@
-// Copyright 2020 Petrov Anton
+// Copyright 2020 Petrov Anton & Savin Dmitry
 
 #include "include/MortgageCalc.h"
 #include <cmath>
