@@ -16,7 +16,6 @@ using std::string;
 
 class pq_app_Test : public ::testing::Test {
  protected:
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 
