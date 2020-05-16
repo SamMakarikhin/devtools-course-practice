@@ -5,6 +5,7 @@
 
 #include <string>
 #include <sstream>
+#include <utility>
 
 RomanArabicConvertCalculator::
     RomanArabicConvertCalculator() : message_("") {}
@@ -22,8 +23,8 @@ void RomanArabicConvertCalculator::
           "... <mode for last element> <last element>\n\n" +
 
           "Where count of elements is a natural numbers, " +
-          "mode is one of 'roman to arabic', 'arabic to roman'.\n" + 
-          "Please, input correct value of number for right work of converter!\n";
+          "mode is one of 'roman to arabic', 'arabic to roman'.\n" +
+          "Please, input correct value for right work of converter!\n";
 }
 
 int parseInt(const char* arg) {
@@ -43,7 +44,7 @@ bool RomanArabicConvertCalculator::
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } 
+    }
     int count_of_elements = parseInt(argv[1]);
     if (argc == 2 * count_of_elements + 2) {
         return true;
@@ -55,9 +56,9 @@ bool RomanArabicConvertCalculator::
 
 std::string parseMode(const char* arg) {
     std::string op(arg);
-    if (op == "roman to arabic") {
+    if (op == "roman_to_arabic") {
         op = "roman to arabic";
-    } else if (op == "arabic to roman") {
+    } else if (op == "arabic_to_roman") {
         op = "arabic to roman";
     } else {
         throw std::string("Wrong mode format!");
@@ -75,7 +76,8 @@ std::string RomanArabicConvertCalculator::
     try {
         args.count_of_elements = parseInt(argv[1]);
         for (int i = 0, j = 2; i < args.count_of_elements * 2; i++, j += 2) {
-            std::pair <std::string, std::string> temp(parseMode(argv[j]), std::string(argv[j + 1]));
+            std::pair <std::string, std::string>temp
+                (parseMode(argv[j]), std::string(argv[j + 1]));
             args.elements[i] = temp;
         }
     }
@@ -90,13 +92,18 @@ std::string RomanArabicConvertCalculator::
         stream << "Results of the conversion: "<< std::endl;
         for (int i = 0; i < args.count_of_elements; i++) {
             int res_arabic;
+            if (i != 0)
+                stream << "   ";
             std::string res_roman;
-            if(args.elements[i].first == "arabic to poman") {
-                res_roman = converter.arabicToRoman(std::stoi(args.elements[i].second));
-                stream << args.elements[i].second << " -> " << res_roman << std::endl;
+            if (args.elements[i].first == "arabic to poman") {
+                res_roman = converter.arabicToRoman
+                    (std::stoi(args.elements[i].second));
+                stream << args.elements[i].second << " -> ";
+                stream << res_roman;
             } else {
                 res_arabic = converter.romanToArabic(args.elements[i].second);
-                stream << args.elements[i].second << " -> " << res_arabic << std::endl;
+                stream << args.elements[i].second << " -> ";
+                stream << res_arabic;
             }
         }
     }
