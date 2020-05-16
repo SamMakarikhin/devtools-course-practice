@@ -76,6 +76,7 @@ std::string MortgageCalculator::operator()(int argc, const char** argv) {
     }
 
     MortgageCalc calculator(args.c_cost, args.d_downPayment, args.c_creditTerm, args.i_interestRate);
+    calculator.calc();
     std::ostringstream stream;
     stream << "c_cost = " << calculator.getCost() << " "
            << "d_downPayment = " << calculator.getDownPayment() << " "
