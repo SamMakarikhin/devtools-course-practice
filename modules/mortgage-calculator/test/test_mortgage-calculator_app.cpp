@@ -69,7 +69,7 @@ TEST_F(MortgageCalculatorTest, Can_Get_MonthlyPayment) {
     vector<string> args = {"2000000", "0", "10", "15.0"};
 
     Act(args);
-string x = "c_cost = 2000000 d_downPayment = 0 c_creditTerm = 120 ";
-string y = "i_interestRate = 15 payment = 32266";
-    Assert(x+y);
+
+    Assert("c_cost = 2000000 d_downPayment = 0 c_creditTerm = 120" +
+           "i_interestRate = 15 payment = 32266");
 }
