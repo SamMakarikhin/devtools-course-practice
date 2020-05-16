@@ -9,13 +9,14 @@
 PrimeNums::PrimeNums() : message_("") {}
 
 void PrimeNums::help(const char* appname, const char* error_message) {
-    message_ += std::string(error_message);
-    message_ += "This is a primary numbers application.\n";
-    message_ += "Please provide arguments in the following format:\n";
-    message_ += "<left border> <right border>\n";
-    message_ += "Where all arguments are int numbers,\n";
-    message_ += "left border less than right border,\n";
-    message_ += "and both of border not equal null";
+    message_ = std::string(std::string(error_message)) +
+        "This is a primary numbers application.\n" +
+        "Please provide arguments in the following format:\n" +
+        "<left border> <right border>\n" +
+        "Where all arguments are int numbers,\n" +
+        "left border less than right border,\n" +
+        "both of border not equal null,\n"+
+        "and must be possitive number";
 }
 
 bool PrimeNums::checkArgs(int argc, const char** argv) {

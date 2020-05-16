@@ -34,7 +34,8 @@ TEST_F(PrimeNumsAppTest, Do_Print_Help_Without_Arguments) {
         << "<left border> <right border>\n"
         << "Where all arguments are int numbers,"
         << "\nleft border less than right border,"
-        << "\nand both of border not equal null";
+        << "\nboth of border not equal null,"
+        << "\nand must be possitive number";
 
     Act(args);
 
@@ -50,7 +51,8 @@ TEST_F(PrimeNumsAppTest, check_argc_with_1_args) {
         << "<left border> <right border>\n"
         << "Where all arguments are int numbers,"
         << "\nleft border less than right border,"
-        << "\nand both of border not equal null";
+        << "\nboth of border not equal null,"
+        << "\nand must be possitive number";
 
     Act(args);
 
@@ -66,7 +68,8 @@ TEST_F(PrimeNumsAppTest, check_argc_with_3_args) {
         << "<left border> <right border>\n"
         << "Where all arguments are int numbers,"
         << "\nleft border less than right border,"
-        << "\nand both of border not equal null";
+        << "\nboth of border not equal null,"
+        << "\nand must be possitive number";
 
     Act(args);
 
@@ -92,7 +95,8 @@ TEST_F(PrimeNumsAppTest, can_detect_negative_left_border) {
         << "<left border> <right border>\n"
         << "Where all arguments are int numbers,"
         << "\nleft border less than right border,"
-        << "\nand both of border not equal null";
+        << "\nboth of border not equal null,"
+        << "\nand must be possitive number";
 
     Act(args);
 
@@ -108,7 +112,8 @@ TEST_F(PrimeNumsAppTest, can_detect_that_left_bigger_than_right_border) {
         << "<left border> <right border>\n"
         << "Where all arguments are int numbers,"
         << "\nleft border less than right border,"
-        << "\nand both of border not equal null";
+        << "\nboth of border not equal null,"
+        << "\nand must be possitive number";
 
     Act(args);
 
@@ -125,7 +130,8 @@ TEST_F(PrimeNumsAppTest, can_detect_incorrect_input_data) {
         << "<left border> <right border>\n"
         << "Where all arguments are int numbers,"
         << "\nleft border less than right border,"
-        << "\nand both of border not equal null";
+        << "\nboth of border not equal null,"
+        << "\nand must be possitive number";
 
     Act(args);
 
