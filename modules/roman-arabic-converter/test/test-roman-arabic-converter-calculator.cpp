@@ -89,3 +89,30 @@ TEST_F(RAConvertCalculatorTest, Can_Convert_Roman_To_Arabic_Two_Number) {
 
     Assert("Results of the conversion: IX -> 9   XII -> 12");
 }
+
+TEST_F(RAConvertCalculatorTest, Can_Convert_Arabic_To_Roman_Two_Number) {
+    vector<string> args =
+        {"2", "arabic_to_roman", "11", "arabic_to_roman", "20"};
+
+    Act(args);
+
+    Assert("Results of the conversion: 11 -> XI   20 -> XX");
+}
+
+TEST_F(RAConvertCalculatorTest, Can_Convert_Two_Number_In_Different_Mode_1) {
+    vector<string> args =
+        {"2", "arabic_to_roman", "11", "roman_to_arabic", "X"};
+
+    Act(args);
+
+    Assert("Results of the conversion: 11 -> XI   X -> 10");
+}
+
+TEST_F(RAConvertCalculatorTest, Can_Convert_Two_Number_In_Different_Mode_2) {
+    vector<string> args =
+        {"2", "roman_to_arabic", "XIX", "arabic_to_roman", "20"};
+
+    Act(args);
+
+    Assert("Results of the conversion: XIX -> 19   20 -> XX");
+}
