@@ -66,9 +66,9 @@ std::string MortgageCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.c_cost      = parseInt(argv[1]);
-        args.d_downPayment = parseInt(argv[2]);
-        args.c_creditTerm      = parseInt(argv[3]);
+        args.c_cost         = parseInt(argv[1]);
+        args.d_downPayment  = parseInt(argv[2]);
+        args.c_creditTerm   = parseInt(argv[3]);
         args.i_interestRate = parseDouble(argv[4]);
     }
     catch(std::string& str) {
