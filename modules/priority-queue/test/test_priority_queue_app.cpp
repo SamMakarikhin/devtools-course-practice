@@ -75,7 +75,7 @@ TEST_F(pq_app_Test, Can_Detect_Wrong_Operation_Format) {
     Assert("Wrong format!");
 }
 
-TEST_F(pq_app_Test, Can_Return_Max_Value_Key) {
+TEST_F(pq_app_Test, Can_Return_Min_Value_Key) {
     vector<string> args = { "1", "100",
         "2", "2", "3", "3", "extractMin" };
 
@@ -84,7 +84,7 @@ TEST_F(pq_app_Test, Can_Return_Max_Value_Key) {
     Assert("Min value = 100");
 }
 
-TEST_F(pq_app_Test, Can_Return_Min_Value_Key) {
+TEST_F(pq_app_Test, Can_Return_Max_Value_Key) {
     vector<string> args = { "1", "1",
         "2", "2", "3", "300", "extractMax" };
 
