@@ -1,7 +1,7 @@
 // Copyright 2020 Arisova Anastasiia
 
-#include "include/roman-arabic-converter.h"
-#include "include/roman-arabic-converter-calculator.h"
+#include "../include/roman-arabic-converter.h"
+#include "../include/roman-arabic-converter-calculator.h"
 
 #include <string>
 #include <sstream>

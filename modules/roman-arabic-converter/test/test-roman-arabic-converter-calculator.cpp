@@ -8,7 +8,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include/roman-arabic-converter-calculator.h"
+#include "../include/roman-arabic-converter-calculator.h"
 
 using ::testing::internal::RE;
 using std::vector;
@@ -56,10 +56,35 @@ TEST_F(RAConvertCalculatorTest, Is_Checking_Number_Of_Arguments) {
 
     Assert("ERROR: incorrect number of parameters. Please try again.*");
 }
-TEST_F(RAConvertCalculatorTest, Can_Convert_Arabic_To_Roman) {
+
+TEST_F(RAConvertCalculatorTest, Can_Detect_Wrong_Operation_Format) {
+    vector<string> args = {"1", "+", "4"};
+
+    Act(args);
+
+    Assert("Wrong mode format!");
+}
+
+TEST_F(RAConvertCalculatorTest, Can_Convert_Arabic_To_Roman_One_Number) {
     vector<string> args = {"1", "arabic_to_roman", "5"};
 
     Act(args);
 
     Assert("Results of the conversion: 5 -> V");
+}
+
+TEST_F(RAConvertCalculatorTest, Can_Convert_Roman_To_Arabic_One_Number) {
+    vector<string> args = {"1", "roman_to_arabic", "IX"};
+
+    Act(args);
+
+    Assert("Results of the conversion: IX -> 9");
+}
+
+TEST_F(RAConvertCalculatorTest, Can_Convert_Roman_To_Arabic_Two_Number) {
+    vector<string> args = {"2", "roman_to_arabic", "IX", "roman_to_arabic", "XII"};
+
+    Act(args);
+
+    Assert("Results of the conversion: IX -> 9   XII -> 12");
 }
