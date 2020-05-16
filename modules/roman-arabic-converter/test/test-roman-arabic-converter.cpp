@@ -421,3 +421,16 @@ TEST(Test_roman_arabic_converter_41, Can_convert_CMXCIX) {
     // Assert
     ASSERT_EQ(999, arabicNum);
 }
+
+TEST(Test_roman_arabic_converter_42, Can_convert_5) {
+    // Arrange
+    int arabicNum = 5;
+    std::string romanNum;
+    RomanArabicConverter converter;
+
+    // Act
+    romanNum = converter.arabicToRoman(arabicNum);
+
+    // Assert
+    ASSERT_EQ("V", romanNum);
+}

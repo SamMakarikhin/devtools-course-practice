@@ -75,6 +75,7 @@ std::string RomanArabicConvertCalculator::
     }
     try {
         args.count_of_elements = parseInt(argv[1]);
+        args.elements.resize(args.count_of_elements);
         for (int i = 0, j = 2; i < args.count_of_elements; i++, j += 2) {
             std::pair <std::string, std::string>temp
                 (parseMode(argv[j]), std::string(argv[j + 1]));
@@ -89,7 +90,7 @@ std::string RomanArabicConvertCalculator::
     std::ostringstream stream;
 
     try {
-        stream << "Results of the conversion: "<< std::endl;
+        stream << "Results of the conversion: ";
         for (int i = 0; i < args.count_of_elements; i++) {
             int res_arabic;
             if (i != 0)
