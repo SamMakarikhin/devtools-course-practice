@@ -25,7 +25,8 @@ void MortgageCalculator::help(const char* appname, const char* message) {
           "and <i_interestRate> is double-precision number.\n";
 }
 
-bool MortgageCalculator::validateNumberOfArguments(int argc, const char** argv) {
+bool MortgageCalculator::validateNumberOfArguments(int argc,
+const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -74,7 +75,8 @@ std::string MortgageCalculator::operator()(int argc, const char** argv) {
         return str;
     }
 
-    MortgageCalc calculator(args.c_cost, args.d_downPayment, args.c_creditTerm, args.i_interestRate);
+    MortgageCalc calculator(args.c_cost, args.d_downPayment,
+    args.c_creditTerm, args.i_interestRate);
     calculator.calc();
     std::ostringstream stream;
     stream << "c_cost = " << calculator.getCost() << " "
