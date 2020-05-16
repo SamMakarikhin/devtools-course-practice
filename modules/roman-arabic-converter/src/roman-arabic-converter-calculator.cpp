@@ -56,14 +56,11 @@ bool RomanArabicConvertCalculator::
 
 std::string parseMode(const char* arg) {
     std::string op(arg);
-    if (op == "roman_to_arabic") {
-        op = "roman_to_arabic";
-    } else if (op == "arabic_to_roman") {
-        op = "arabic_to_roman";
+    if ((op == "roman_to_arabic") || (op == "arabic_to_roman")) {
+        return op;
     } else {
         throw std::string("Wrong mode format!");
     }
-    return op;
 }
 
 std::string RomanArabicConvertCalculator::
