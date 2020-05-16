@@ -1,8 +1,7 @@
 // Copyright 2020 Dobrohotov Vitaly
 
-#include <sstream>
 #include <string>
-#include<vector>
+#include <vector>
 
 #include "include/prime_nums_for_app.h"
 #include "include/TPrime_Nums.h"
