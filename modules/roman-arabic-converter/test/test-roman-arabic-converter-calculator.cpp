@@ -82,7 +82,8 @@ TEST_F(RAConvertCalculatorTest, Can_Convert_Roman_To_Arabic_One_Number) {
 }
 
 TEST_F(RAConvertCalculatorTest, Can_Convert_Roman_To_Arabic_Two_Number) {
-    vector<string> args = {"2", "roman_to_arabic", "IX", "roman_to_arabic", "XII"};
+    vector<string> args =
+        {"2", "roman_to_arabic", "IX", "roman_to_arabic", "XII"};
 
     Act(args);
 
