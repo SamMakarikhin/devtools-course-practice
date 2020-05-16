@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "include/roman-arabic-converter-calculator.h"
+#include "../include/roman-arabic-converter-calculator.h"
 
 int main(int argc, const char** argv) {
     RomanArabicConvertCalculator app;

@@ -54,5 +54,5 @@ TEST_F(RAConvertCalculatorTest, Is_Checking_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: incorrect number of parameters. Please try again.\\..*");
+    Assert("ERROR: incorrect number of parameters. Please try again.*");
 }

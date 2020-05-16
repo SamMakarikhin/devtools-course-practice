@@ -3,10 +3,6 @@
 #include "include/roman-arabic-converter.h"
 #include "include/roman-arabic-converter-calculator.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <sstream>
 
@@ -17,7 +13,7 @@ void RomanArabicConvertCalculator::
     help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-          "This is a  Roman-Arabic Convert calculator application.\n\n" +
+          "This is a Roman-Arabic Convert calculator application.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
           appname + " <count of elements>" +
@@ -27,7 +23,7 @@ void RomanArabicConvertCalculator::
 
           "Where count of elements is a natural numbers, " +
           "mode is one of 'roman to arabic', 'arabic to roman'.\n" + 
-          "Please, input correct value of number for right work of converter!";
+          "Please, input correct value of number for right work of converter!\n";
 }
 
 int parseInt(const char* arg) {
