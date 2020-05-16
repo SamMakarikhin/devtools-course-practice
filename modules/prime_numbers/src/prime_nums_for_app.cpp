@@ -49,7 +49,6 @@ std::string PrimeNums::operator()(int argc, const char** argv) {
     }
     a = atoi(argv[1]);
     b = atoi(argv[2]);
-    std::ostringstream stream;
     TPrime_Nums pn(a, b);
     std::vector <unsigned int> v = pn.Get_Prime_Nums();
     message_ = "Interval: [" + std::to_string(pn.GetInterval().first) +";" +
