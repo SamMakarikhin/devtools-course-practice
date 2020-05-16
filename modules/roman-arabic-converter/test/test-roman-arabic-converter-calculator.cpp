@@ -119,7 +119,8 @@ TEST_F(RAConvertCalculatorTest, Can_Convert_Two_Number_In_Different_Mode_2) {
 
 TEST_F(RAConvertCalculatorTest, Can_Convert_Three_Numbers) {
     vector<string> args =
-        {"3", "arabic_to_roman", "11", "roman_to_arabic", "X", "arabic_to_roman", "20"};
+        {"3", "arabic_to_roman", "11",
+        "roman_to_arabic", "X", "arabic_to_roman", "20"};
 
     Act(args);
 
