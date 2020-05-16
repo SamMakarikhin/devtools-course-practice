@@ -76,7 +76,7 @@ TEST_F(PrimeNumsAppTest, check_argc_with_3_args) {
 
 TEST_F(PrimeNumsAppTest, check_argc_with_2_args) {
     std::vector<std::string> args = { "1", "10" };
-    std::string str = "Interval: [1;10]\n";
+    std::string str = "Interval: 1-10\n";
     str += "Primary numbers: 2 3 5 7 ";
 
     Act(args);

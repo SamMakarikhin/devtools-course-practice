@@ -51,8 +51,8 @@ std::string PrimeNums::operator()(int argc, const char** argv) {
     b = atoi(argv[2]);
     TPrime_Nums pn(a, b);
     std::vector <unsigned int> v = pn.Get_Prime_Nums();
-    message_ = "Interval: [" + std::to_string(pn.GetInterval().first) +";" +
-        std::to_string(pn.GetInterval().second) + "]\n" + "Primary numbers: ";
+    message_ = "Interval: " + std::to_string(pn.GetInterval().first) +"-" +
+        std::to_string(pn.GetInterval().second) + "\nPrimary numbers: ";
     for (auto i : v) {
        message_ += std::to_string(i) + " ";
     }
