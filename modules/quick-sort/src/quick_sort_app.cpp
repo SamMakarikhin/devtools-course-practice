@@ -29,9 +29,9 @@ std::string  QuickSortApp::operator()(int argc, const char** argv) {
 
   std::vector<int> res = qsort.GetVector();
 
-  int sz = res.size();
-  for (int i = 0; i < sz - 1; ++i) stream << res[i] << " ";
-  stream << res[sz - 1];
+  int sz = res.size() - 1;
+  for (int i = 0; i < sz; ++i) stream << res[i] << " ";
+  stream << res[sz];
 
   message_ = stream.str();
 

@@ -10,7 +10,6 @@ class QuickSortApp {
  public:
     QuickSortApp();
     std::string operator()(int argc, const char** argv);
-
  private:
     void help(const char* appname, const char* message = "");
     std::string message_;
