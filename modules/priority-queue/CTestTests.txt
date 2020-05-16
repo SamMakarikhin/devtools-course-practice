@@ -41,7 +41,7 @@ add_test(
     COMMAND ${APPLICATION} 1 100 2 2 3 3 wrong
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+    PASS_REGULAR_EXPRESSION "Wrong format!"
     LABELS "${MODULE}")
 
 add_test(
