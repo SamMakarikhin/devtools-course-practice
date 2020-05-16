@@ -19,6 +19,31 @@ bool compare_vec(std::vector<unsigned int> v1, std::vector<unsigned int> v2) {
     return true;
 }
 
+TEST(compare_vector, return_false_1) 
+{
+    // Arrange
+    std::vector<unsigned int> v1;
+    std::vector<unsigned int> v2;
+    // Act
+    v1.push_back(1);
+    v1.push_back(2);
+    v2.push_back(2);
+    // Assert
+    EXPECT_FALSE(compare_vec(v1, v2));
+}
+
+TEST(compare_vector, return_false_2)
+{
+    // Arrange
+    std::vector<unsigned int> v1;
+    std::vector<unsigned int> v2;
+    // Act
+    v1.push_back(1);
+    v2.push_back(2);
+    // Assert
+    EXPECT_FALSE(compare_vec(v1, v2));
+}
+
 TEST(TPrime_Nums, can_create_default_class) {
     // Arrange, Act and Assert
     ASSERT_NO_THROW(TPrime_Nums p());
