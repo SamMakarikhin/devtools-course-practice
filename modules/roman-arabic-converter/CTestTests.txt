@@ -38,7 +38,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Convert_Arabic_To_Roman
-    COMMAND ${APPLICATION} 1 arabic_to_poman 25
+    COMMAND ${APPLICATION} 1 arabic_to_roman 25
 )
 set_tests_properties (${prefix}_can_Convert_Arabic_To_Roman PROPERTIES
     PASS_REGULAR_EXPRESSION "25 -> XXV"
@@ -54,7 +54,7 @@ set_tests_properties (${prefix}_can_Convert_Roman_To_Arabic PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Convert_Two_Number_A_To_R
-    COMMAND ${APPLICATION} 2 arabic_to_poman 14 arabic_to_poman 7
+    COMMAND ${APPLICATION} 2 arabic_to_roman 14 arabic_to_roman 7
 )
 set_tests_properties (${prefix}_can_Convert_Two_Number_A_To_R PROPERTIES
     PASS_REGULAR_EXPRESSION "14 -> XIV   7 -> VII"
@@ -62,7 +62,7 @@ set_tests_properties (${prefix}_can_Convert_Two_Number_A_To_R PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Convert_Two_Number_R_To_A
-    COMMAND ${APPLICATION} 2 roman_to_arabic XIV roman_to_arabic XVII
+    COMMAND ${APPLICATION} 2 roman_to_arabic XIV roman_to_arabic VII
 )
 set_tests_properties (${prefix}_can_Convert_Two_Number_R_To_A PROPERTIES
     PASS_REGULAR_EXPRESSION "XIV -> 14   VII -> 7"
@@ -70,7 +70,7 @@ set_tests_properties (${prefix}_can_Convert_Two_Number_R_To_A PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Convert_Two_Number_Diff_Mode
-    COMMAND ${APPLICATION} 2 arabic_to_poman 4 roman_to_arabic XVI
+    COMMAND ${APPLICATION} 2 arabic_to_roman 4 roman_to_arabic XVI
 )
 set_tests_properties (${prefix}_can_Convert_Two_Number_Diff_Mode PROPERTIES
     PASS_REGULAR_EXPRESSION "4 -> IV   XVI -> 16"

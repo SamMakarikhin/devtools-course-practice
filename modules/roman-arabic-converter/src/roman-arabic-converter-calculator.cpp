@@ -23,7 +23,7 @@ void RomanArabicConvertCalculator::
           "... <mode for last element> <last element>\n\n" +
 
           "Where count of elements is a natural numbers, " +
-          "mode is one of 'roman to arabic', 'arabic to roman'.\n" +
+          "mode is one of 'roman_to_arabic', 'arabic_to_roman'.\n" +
           "Please, input correct value for right work of converter!\n";
 }
 
@@ -57,9 +57,9 @@ bool RomanArabicConvertCalculator::
 std::string parseMode(const char* arg) {
     std::string op(arg);
     if (op == "roman_to_arabic") {
-        op = "roman to arabic";
+        op = "roman_to_arabic";
     } else if (op == "arabic_to_roman") {
-        op = "arabic to roman";
+        op = "arabic_to_roman";
     } else {
         throw std::string("Wrong mode format!");
     }
@@ -95,7 +95,7 @@ std::string RomanArabicConvertCalculator::
             if (i != 0)
                 stream << "   ";
             std::string res_roman;
-            if (args.elements[i].first == "arabic to poman") {
+            if (args.elements[i].first == "arabic_to_roman") {
                 res_roman = converter.arabicToRoman
                     (std::stoi(args.elements[i].second));
                 stream << args.elements[i].second << " -> ";
