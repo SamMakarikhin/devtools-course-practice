@@ -1,15 +1,15 @@
 // Copyright 2020 Zakharov Mikhail
 
-#include "include/calculator.h"
-#include "include/converter.h"
-#include "include/converter_and_calculator.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "include/calculator.h"
+#include "include/converter.h"
+#include "include/converter_and_calculator.h"
 
 Converter_and_Calculator::Converter_and_Calculator() : message_("") {}
 
@@ -26,7 +26,8 @@ void Converter_and_Calculator::help(const char* appname, const char* message) {
           "and <operation> is one of '+', '-', '*', '/'.\n";
 }
 
-bool Converter_and_Calculator::validateNumberOfArguments(int argc, const char** argv) {
+bool Converter_and_Calculator::validateNumberOfArguments
+(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -96,7 +97,8 @@ std::string Converter_and_Calculator::operator()(int argc, const char** argv) {
         c = calc.mult(args.a, args.system1, args.b, args.system2);
         break;
      case '/':
-        c = calc.div((double)args.a, args.system1, (double)args.b, args.system2);
+        c = calc.div(static_cast<double>(args.a), args.system1,
+         static_cast<double>(args.b), args.system2);
     }
 
     stream << "a = " << args.a << " "
