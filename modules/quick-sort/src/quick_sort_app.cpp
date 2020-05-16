@@ -25,13 +25,13 @@ std::string  QuickSortApp::operator()(int argc, const char** argv) {
   std::ostringstream stream;
   QuickSort qsort(vec);
 
-  qsort.QSort(0, (vec.size()-1));
+  qsort.QSort(0, (vec.size() - 1));
 
   std::vector<int> res = qsort.GetVector();
 
   int sz = res.size();
-  for (int i = 0; i < sz -1; ++i) stream << res[i] << " ";
-  stream << res[sz-1];
+  for (int i = 0; i < sz - 1; ++i) stream << res[i] << " ";
+  stream << res[sz - 1];
 
   message_ = stream.str();
 
