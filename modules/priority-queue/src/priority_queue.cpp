@@ -2,6 +2,7 @@
 
 #include "include/priority_queue.h"
 #include <list>
+#include <utility>
 
 node::node() : key(0), data(0) {}
 
@@ -36,8 +37,7 @@ std::list<node>::iterator priority_queue::get_max_it() {
     return max;
 }
 
-priority_queue::priority_queue(std::pair<int, int> pair)
-{
+priority_queue::priority_queue(std::pair<int, int> pair) {
     node _node(pair.first, pair.second);
     queue.push_back(_node);
 }
