@@ -36,6 +36,12 @@ std::list<node>::iterator priority_queue::get_max_it() {
     return max;
 }
 
+priority_queue::priority_queue(std::pair<int, int> pair)
+{
+    node _node(pair.first, pair.second);
+    queue.push_back(_node);
+}
+
 bool priority_queue::is_empty() {
     return queue.empty();
 }

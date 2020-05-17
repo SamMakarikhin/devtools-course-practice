@@ -21,6 +21,8 @@ class priority_queue {
     std::list<node>::iterator get_max_it();
 
  public:
+    priority_queue() {}
+    priority_queue(std::pair<int, int> pair);
     void insert(node _node);
     int* extract_minimum();
     int* extract_maximum();
