@@ -1,9 +1,5 @@
 // Copyright 2020 Savin Dmitry
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <sstream>
 
@@ -37,28 +33,6 @@ const char** argv) {
     return true;
 }
 
-double parseDouble(const char* arg) {
-    char* end;
-    double value = strtod(arg, &end);
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
-    return value;
-}
-
-double parseInt(const char* arg) {
-    char* end;
-    int value = strtol(arg, &end, 0);
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
-    return value;
-}
-
 std::string MortgageCalculator::operator()(int argc, const char** argv) {
     Arguments args;
 
@@ -66,10 +40,10 @@ std::string MortgageCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.c_cost         = parseInt(argv[1]);
-        args.d_downPayment  = parseInt(argv[2]);
-        args.c_creditTerm   = parseInt(argv[3]);
-        args.i_interestRate = parseDouble(argv[4]);
+        args.c_cost =  static_cast<unsigned int>(std::stoul(argv[1]));
+        args.d_downPayment =  static_cast<unsigned int>(std::stoul(argv[2]));
+        args.c_creditTerm  =  static_cast<unsigned int>(std::stoul(argv[3]));
+        args.i_interestRate = std::stod(argv[4]);
     }
     catch(std::string& str) {
         return str;

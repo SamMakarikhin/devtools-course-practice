@@ -1,7 +1,6 @@
 // Copyright 2020 Savin Dmitry
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <iostream>
 #include <string>
 
 #include "include/mortgage-calculator.h"
@@ -9,6 +8,6 @@
 int main(int argc, const char** argv) {
     MortgageCalculator app;
     std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+    std::cout << output.c_str() << std::endl;
     return 0;
 }
