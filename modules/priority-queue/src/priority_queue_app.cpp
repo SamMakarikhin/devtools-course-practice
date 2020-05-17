@@ -48,7 +48,7 @@ std::string pq_app::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
-    for (size_t i = 0, j = 2; i < std::stoi(argv[1]); i++, j=j+2) {
+    for (int i = 0, j = 2; i < std::stoi(argv[1]); i++, j=j+2) {
         try {
             args.key_value.push_back(std::make_pair(std::stoi(argv[j]),
                 std::stoi(argv[j + 1])));
