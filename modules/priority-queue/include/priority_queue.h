@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <list>
+#include <utility>
 
 class node {
  public:
@@ -22,7 +23,7 @@ class priority_queue {
 
  public:
     priority_queue() {}
-    priority_queue(std::pair<int, int> pair);
+    explicit priority_queue(std::pair<int, int> pair);
     void insert(node _node);
     int* extract_minimum();
     int* extract_maximum();

@@ -5,7 +5,6 @@
 
 #include <string>
 #include <sstream>
-#include "../include/priority_queue.h"
 
 pq_app::pq_app() : message_("") {}
 
