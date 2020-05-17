@@ -209,7 +209,7 @@ TEST_F(PriorityQueueTest, ReturnNullptrWhileExtractKeyFromEmpty) {
 
 TEST_F(PriorityQueueTest, Can_Work_With_Pair) {
     // Arrange
-    priority_queue pq(std::make_pair(5,5));
+    priority_queue pq(std::make_pair(5, 5));
     node n(1, 1);
     int* p_n;
     int key;
@@ -220,5 +220,5 @@ TEST_F(PriorityQueueTest, Can_Work_With_Pair) {
     p_n = pq.extract_key(key);
 
     // Assert
-    EXPECT_EQ(5,*p_n);
+    EXPECT_EQ(5, *p_n);
 }

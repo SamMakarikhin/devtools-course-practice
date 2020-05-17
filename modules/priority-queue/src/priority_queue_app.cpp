@@ -48,9 +48,10 @@ std::string pq_app::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
-    for (size_t i = 0, j = 2; i<std::stoi(argv[1]);i++,j=j+2) {
+    for (size_t i = 0, j = 2; i < std::stoi(argv[1]); i++, j=j+2) {
         try {
-            args.key_value.push_back(std::make_pair(std::stoi(argv[j]), std::stoi(argv[j + 1])));
+            args.key_value.push_back(std::make_pair(std::stoi(argv[j]),
+                std::stoi(argv[j + 1])));
         }
         catch (std::exception & error) {
             return std::string("Wrong number format!");
@@ -66,9 +67,8 @@ std::string pq_app::operator()(int argc, const char** argv) {
 
     priority_queue pq;
 
-    for (auto& i : args.key_value)
-    {
-        node n(i.first,i.second);
+    for (const auto& i : args.key_value) {
+        node n(i.first, i.second);
         pq.insert(n);
     }
 
@@ -78,8 +78,7 @@ std::string pq_app::operator()(int argc, const char** argv) {
     if (args.operation == "extractMin") {
         output = *(pq.extract_minimum());
         stream << "Min value = " << output;
-    }
-    else  if (args.operation == "extractMax") {
+    } else  if (args.operation == "extractMax") {
         output = *(pq.extract_maximum());
         stream << "Max value = " << output;
     }
