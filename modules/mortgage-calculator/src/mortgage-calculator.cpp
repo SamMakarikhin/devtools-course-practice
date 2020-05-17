@@ -45,8 +45,8 @@ std::string MortgageCalculator::operator()(int argc, const char** argv) {
         args.c_creditTerm  =  static_cast<unsigned int>(std::stoul(argv[3]));
         args.i_interestRate = std::stod(argv[4]);
     }
-    catch(std::string& str) {
-        return str;
+       catch (std::exception &error) {
+        return std::string("Wrong number format!");
     }
 
     MortgageCalc calculator(args.c_cost, args.d_downPayment,
