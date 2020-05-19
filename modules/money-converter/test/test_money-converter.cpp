@@ -52,7 +52,7 @@ TEST(test_brazhnikov_eugene_money_converter, Rub_to_USD_with_int) {
     double input = 10;
     double output;
 
-    output = converter.rubJPY(input, 0);
+    output = converter.rubUSD(input, 0);
 
     ASSERT_NEAR(0.128, output, 0.1);
 }
@@ -113,22 +113,22 @@ TEST(test_brazhnikov_eugene_money_converter, Rub_to_EUR_with_int) {
 
 TEST(test_brazhnikov_eugene_money_converter, Can_Convert_Rub_to_JPY) {
     MoneyConverter converter;
-    double input = 71.40;
+    double input = 100.0;
     double output;
 
     output = converter.rubJPY(input, 0);
 
-    ASSERT_DOUBLE_EQ(1, output);
+    ASSERT_NEAR(144.92, output, 0.1);
 }
 
 TEST(test_brazhnikov_eugene_money_converter, Can_Convert_JPY_to_RUB) {
     MoneyConverter converter;
-    double input = 1;
+    double input = 200.0;
     double output;
 
     output = converter.rubJPY(input, 1);
 
-    ASSERT_DOUBLE_EQ(71.40, output);
+    ASSERT_DOUBLE_EQ(138, output);
 }
 
 TEST(test_brazhnikov_eugene_money_converter, Rub_to_JPY_equal_zero) {
@@ -158,7 +158,7 @@ TEST(test_brazhnikov_eugene_money_converter, Rub_to_JPY_with_int) {
 
     output = converter.rubJPY(input, 0);
 
-    ASSERT_NEAR(0.14, output, 0.1);
+    ASSERT_NEAR(14.54, output, 0.1);
 }
 
 // ===================================
@@ -170,7 +170,7 @@ TEST(test_brazhnikov_eugene_money_converter, Can_Convert_RUB_to_SEK) {
 
     output = converter.rubSEK(input, 0);
 
-    ASSERT_DOUBLE_EQ(1, output);
+    ASSERT_NEAR(10.47, output, 0.1);
 }
 
 TEST(test_brazhnikov_eugene_money_converter, Can_Convert_SEK_to_RUB) {
@@ -180,7 +180,7 @@ TEST(test_brazhnikov_eugene_money_converter, Can_Convert_SEK_to_RUB) {
 
     output = converter.rubSEK(input, 1);
 
-    ASSERT_DOUBLE_EQ(78, output);
+    ASSERT_NEAR(7.45, output, 0.1);
 }
 
 TEST(test_brazhnikov_eugene_money_converter, Rub_to_SEK_equal_zero) {
@@ -208,9 +208,9 @@ TEST(test_brazhnikov_eugene_money_converter, Rub_to_SEK_with_int) {
     double input = 10;
     double output;
 
-    output = converter.rubJPY(input, 0);
+    output = converter.rubSEK(input, 0);
 
-    ASSERT_NEAR(0.128, output, 0.1);
+    ASSERT_NEAR(1.34, output, 0.1);
 }
 
 // =================================

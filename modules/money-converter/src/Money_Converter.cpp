@@ -2,53 +2,44 @@
 
 #include "include/Money_Converter.h"
 
-const double dollarRate = 77.73;
-const double eurRate = 85.73;
-const double jpyRate = 71.40;
-const double sekRate = 78;
-const double uahRate = 2.79;
+double result = -1;
 
 double MoneyConverter::rubUSD(const double& curr, bool  whichone) {
-    if (curr >= 0 && whichone == 0)
-        return curr / dollarRate;
-    else if (curr >= 0 && whichone == 1)
-        return curr * dollarRate;
+    if (curr < 0) return result;
+    if (whichone)
+       return curr * 77.73;
     else
-        return -1;
+        return curr / 77.73;
 }
 
 double MoneyConverter::rubEUR(const double& curr, bool whichone) {
-    if (curr >= 0 && whichone == 0)
-        return curr / eurRate;
-    else if (curr >= 0 && whichone == 1)
-        return curr * eurRate;
+    if (curr < 0) return result;
+    if (whichone)
+        return curr * 85.73;
     else
-        return -1;
+        return curr / 85.73;
 }
 
 double MoneyConverter::rubJPY(const double& curr, bool whichone) {
-    if (curr >= 0 && whichone == 0)
-        return curr / jpyRate;
-    else if (curr >= 0 && whichone == 1)
-        return curr * jpyRate;
+    if (curr < 0) return result;
+    if (whichone)
+        return curr * 0.69;
     else
-        return -1;
+        return curr / 0.69;
 }
 
 double MoneyConverter::rubSEK(const double& curr, bool whichone) {
-    if (curr >= 0 && whichone == 0)
-        return curr / sekRate;
-    else if (curr >= 0 && whichone == 1)
-        return curr * sekRate;
+    if (curr < 0) return result;
+    if (whichone)
+        return curr * 7.45;
     else
-        return -1;
+        return curr / 7.45;
 }
 
 double MoneyConverter::rubUAH(const double& curr, bool whichone) {
-    if (curr >= 0 && whichone == 0)
-        return curr / uahRate;
-    else if (curr >= 0 && whichone == 1)
-        return curr * uahRate;
+    if (curr < 0) return result;
+    if (whichone)
+        return curr * 2.79;
     else
-        return -1;
+        return curr / 2.79;
 }
