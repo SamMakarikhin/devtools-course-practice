@@ -1,4 +1,4 @@
-// Copyright 2020 Petrov Anton
+// Copyright 2020 Savin Dmitry
 
 #include <gtest/gtest.h>
 
