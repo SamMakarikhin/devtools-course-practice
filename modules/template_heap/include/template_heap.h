@@ -1,4 +1,4 @@
-// Copyright 2020 Pauzin Leonid & Myshkin Andrey
+// Copyright 2020 Myshkin Andrey
 #ifndef MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
 #define MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
 
