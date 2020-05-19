@@ -5,8 +5,7 @@
 #include "include/chezar.h"
 
 TEST(Suchkov_Makar_ChezarTest, Can_Create) {
-    // Arrange
-    // Act
+    // Arrange & Act
     Chezar estr;
     // Assert
     EXPECT_FALSE(estr.isEncrypt());

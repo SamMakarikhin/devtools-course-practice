@@ -7,7 +7,7 @@ Chezar::Chezar() {
 
 Chezar::Chezar(char *str, int key) {
     try {
-        if(str == nullptr)
+        if (str == nullptr)
             throw;
         this->msg = str;
         this->key = key;
@@ -31,7 +31,7 @@ bool Chezar::SetKey(int key) {
 
 bool Chezar::SetStr(char* str) {
     try {
-        if(str == nullptr)
+        if (str == nullptr)
             throw;
         this->msg = str;
     } catch (...) {
@@ -54,7 +54,7 @@ int Chezar::GetKey() {
 
 bool Chezar::SetCryptStatus (bool status) {
     try {
-        if(status == true || status == false) {
+        if (status == true || status == false) {
             is_e = status;
             return true;
         } else {
@@ -89,7 +89,9 @@ bool Chezar::Encrypt() {
         } catch (...) {
             return false;
         }
-    } else return false;
+    } else {
+        return false;
+    }
 }
 
 bool Chezar::Decrypt() {
@@ -116,6 +118,7 @@ bool Chezar::Decrypt() {
         } catch (...) {
             return false;
         }
-    } else return false;
+    } else {
+        return false;
+    }
 }
-
