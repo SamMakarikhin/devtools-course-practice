@@ -22,11 +22,10 @@ Chezar::~Chezar() {
 bool Chezar::SetKey(int key) {
     try {
         this->key = key;
+        return true;
     } catch (...) {
         return false;
     }
-    this->key = key;
-    return true;
 }
 
 bool Chezar::SetStr(char* str) {
@@ -53,14 +52,10 @@ int Chezar::GetKey() {
 }
 
 bool Chezar::SetCryptStatus(bool status) {
-    try {
-        if (status == true || status == false) {
-            is_e = status;
-            return true;
-        } else {
-            throw;
-        }
-    } catch (...) {
+    if (status == true || status == false) {
+        is_e = status;
+        return true;
+    } else {
         return false;
     }
 }
