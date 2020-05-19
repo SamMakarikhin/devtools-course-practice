@@ -1,7 +1,7 @@
 // Copyright 2020 Myshkin Andrey
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <string>
 #include <iostream>
 
