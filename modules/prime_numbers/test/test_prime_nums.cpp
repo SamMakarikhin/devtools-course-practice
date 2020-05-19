@@ -1,4 +1,4 @@
-// Copyright 2020 Kuzhelev Anton
+// Copyright 2020 Kuzhelev Anton & Dobrohotov Vitaly
 
 #include <gtest/gtest.h>
 

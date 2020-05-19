@@ -1,4 +1,4 @@
-// Copyright 2020 Kuzhelev Anton
+// Copyright 2020 Kuzhelev Anton & Dobrohotov Vitaly
 
 #ifndef MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_
 #define MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_
