@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <list>
+#include <utility>
 
 class node {
  public:
@@ -21,9 +22,12 @@ class priority_queue {
     std::list<node>::iterator get_max_it();
 
  public:
+    priority_queue() {}
+    explicit priority_queue(std::pair<int, int> pair);
     void insert(node _node);
     int* extract_minimum();
     int* extract_maximum();
+    int* extract_key(int key);
     bool deleteMin();
     bool deleteMax();
     bool is_empty();
