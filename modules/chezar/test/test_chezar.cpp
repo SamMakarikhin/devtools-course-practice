@@ -13,8 +13,9 @@ class ChezarTest : public ::testing::Test {
 TEST(Suchkov_Makar_ChezarTest, Can_Create) {
     // Arrange & Act
     Chezar estr;
+    int z = estr.GetKey();
     // Assert
-    EXPECT_EQ(0, estr.GetKey());
+    EXPECT_EQ(0, z);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_With_Arguments_Create) {
