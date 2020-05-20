@@ -1,10 +1,10 @@
 // Copyright 2020 Suchkov Makar
 
-#include "include/chezar.h"
-
 #include <gtest/gtest.h>
 
 #include <string>
+
+#include "include/chezar.h"
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments) {
     // Arrange & Assert
