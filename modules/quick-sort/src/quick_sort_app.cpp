@@ -34,7 +34,7 @@ std::vector<int> QuickSortApp::parsevector(int argc, const char** argv) {
   return vec;
 }
 
-std::vector<int> QuickSortApp::sorting (const std::vector<int>& vec) {
+std::vector<int> QuickSortApp::sorting(const std::vector<int>& vec) {
   QuickSort qsort(vec);
   qsort.QSort(0, (vec.size() - 1));
   std::vector<int> res = qsort.GetVector();
