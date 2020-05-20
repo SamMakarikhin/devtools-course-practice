@@ -5,6 +5,8 @@
 
 #include <string>
 
+using std::string;
+
 class Chezar {
  public:
    Chezar();

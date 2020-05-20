@@ -5,6 +5,8 @@
 
 #include "include/chezar.h"
 
+using std::string;
+
 class ChezarTest : public ::testing::Test {
 };
 

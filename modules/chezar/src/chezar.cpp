@@ -3,6 +3,8 @@
 #include <string>
 #include "include/chezar.h"
 
+using std::string;
+
 Chezar::Chezar() {
     key = 0;
 }
