@@ -13,8 +13,7 @@ Chezar::Chezar(std::string str, unsigned int key) {
     this->msg = str;
     if (key >= 26) {
         this->key = key;
-    }
-    else {
+    } else {
         this->key = key % 26;
     }
 }
@@ -25,15 +24,13 @@ Chezar::~Chezar() {
 void Chezar::SetKey(unsigned int key) {
     if (key >= 26) {
         this->key = key;
-    }
-    else {
+    } else {
         this->key = key % 26;
     }
 }
 
 void Chezar::SetStr(std::string str) {
     this->msg = str;
-    
 }
 
 std::string Chezar::GetStr() const {
