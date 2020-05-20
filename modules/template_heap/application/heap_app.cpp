@@ -11,6 +11,6 @@
 int main(int argc, const char** argv) {
     Heap_App App;
     std::string output = App(argc, argv);
-    printf("%s\n", output.c_str());
+    std::cout << output.c_str() << std::endl;
     return 0;
 }
