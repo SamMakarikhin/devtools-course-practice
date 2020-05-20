@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <functional>
 #include <iterator>
+#include <cstring>
 
 #include "include/converter_and_calculator.h"
 
