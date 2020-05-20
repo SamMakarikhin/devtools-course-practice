@@ -5,6 +5,9 @@
 
 #include "include/chezar.h"
 
+class ChezarTest : public ::testing::Test {
+};
+
 TEST(Suchkov_Makar_ChezarTest, Can_Create) {
     // Arrange & Act
     Chezar estr;
