@@ -22,7 +22,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_With_Arguments_Create) {
     std::string a = "abcdefghijklmnopqrstuvwxyz";
     int key = 1488;
     // Act
-    Chezar estr1(a, key);
+    Chezar estr(a, key);
     int res = estr.GetKey();
     // Assert
     EXPECT_EQ(6, res);
