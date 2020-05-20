@@ -1,7 +1,5 @@
 // Copyright 2020 Zakharov Mikhail
 
-#include <sstream>
-#include <string>
 #include <string>
 #include <sstream>
 #include "include/calculator.h"
