@@ -2,9 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include "include/chezar.h"
-
 #include <string>
+
+#include "include/chezar.h"
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments) {
     // Arrange & Assert
@@ -12,7 +12,7 @@ TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments) {
     std::string z("abcdefghijklmnopqrstuvwxyz");
     std::string res(Decrypt(a, 5));
     // Act
-    EXPECT_STRCASEEQ("abcdefghijklmnopqrstuvwxyz", res);
+    EXPECT_EQ("abcdefghijklmnopqrstuvwxyz", res);
 }
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Crypt_Correct_Data_Arguments) {
@@ -21,7 +21,7 @@ TEST(Suchkov_Makar_Chezar_Test, Can_Crypt_Correct_Data_Arguments) {
     std::string z("fghijklmnopqrstuvwxyzabcde");
     std::string res(Encrypt(a, 5));
     // Act
-    EXPECT_STRCASEEQ("fghijklmnopqrstuvwxyzabcde", res);
+    EXPECT_EQ("fghijklmnopqrstuvwxyzabcde", res);
 }
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments_Upper) {
@@ -30,7 +30,7 @@ TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments_Upper) {
     std::string z("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     std::string res(Decrypt(a, 5));
     // Act
-    EXPECT_STRCASEEQ(z, res);
+    EXPECT_EQ(z, res);
 }
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Crypt_Correct_Data_Arguments_Upper) {
@@ -39,5 +39,5 @@ TEST(Suchkov_Makar_Chezar_Test, Can_Crypt_Correct_Data_Arguments_Upper) {
     std::string z("FGHIJKLMNOPQRSTUVWXYZABCDE");
     std::string res(Encrypt(a, 5));
     // Act
-    EXPECT_STRCASEEQ(z, res);
+    EXPECT_EQ(z, res);
 }
