@@ -77,8 +77,7 @@ std::string Chezar::Encrypt(std::string str, unsigned int key) {
     this->msg = str;
     if (key >= 26) {
         this->key = key;
-    }
-    else {
+    } else {
         this->key = key % 26;
     }
     for (unsigned int i = 0; msg[i] != '\0'; ++i) {
@@ -101,8 +100,7 @@ std::string Chezar::Decrypt(std::string str, unsigned int key) {
     this->msg = str;
     if (key >= 26) {
         this->key = key;
-    }
-    else {
+    } else {
         this->key = key % 26;
     }
     for (unsigned int i = 0; msg[i] != '\0'; ++i) {
