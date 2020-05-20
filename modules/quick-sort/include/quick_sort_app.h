@@ -13,9 +13,9 @@ class QuickSortApp {
  private:
     void help(const char* appname, const char* message = "");
     bool numbersofarguments(int argc, const char** argv);
-    std::vector<int> QuickSortApp::parsevector(int argc, const char** argv);
-    std::vector<int> QuickSortApp::sort(const std::vector<int>& vec);
-    std::string  QuickSortApp::createmessage(const std::vector<int>& vec);
+    std::vector<int> parsevector(int argc, const char** argv);
+    std::vector<int> sort(const std::vector<int>& vec);
+    std::string createmessage(const std::vector<int>& vec);
     std::string message_;
 };
 
