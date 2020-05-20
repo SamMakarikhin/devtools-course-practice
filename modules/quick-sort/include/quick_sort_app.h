@@ -12,8 +12,11 @@ class QuickSortApp {
     std::string operator()(int argc, const char** argv);
  private:
     void help(const char* appname, const char* message = "");
+    bool numbersofarguments(int argc, const char** argv);
+    std::vector<int> QuickSortApp::parsevector(int argc, const char** argv);
+    std::vector<int> QuickSortApp::sort(const std::vector<int>& vec);
+    std::string  QuickSortApp::createmessage(const std::vector<int>& vec);
     std::string message_;
-    std::vector<int> vec;
 };
 
 #endif  // MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_APP_H_
