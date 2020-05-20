@@ -3,29 +3,24 @@
 #ifndef MODULES_CHEZAR_INCLUDE_CHEZAR_H_
 #define MODULES_CHEZAR_INCLUDE_CHEZAR_H_
 
-#include <iostream>
+#include <string>
 
 class Chezar {
  public:
-    Chezar();
-    Chezar(char *str, int key);
-    ~Chezar();
-    char* GetStr();
-    bool SetStr(char* str);
-    bool SetKey(int key);
-    int GetKey();
-    bool isEncrypt();
-    bool SetCryptStatus(bool status);
-    bool Decrypt();
-    bool Encrypt();
-    enum Cryptstatus {
-       DECRYPTED = false,
-       ENCRYPTED = true
-    };
+   Chezar();
+   Chezar(std::string str, unsigned int key);
+   ~Chezar();
+   std::string GetStr() const;
+   void SetStr(std::string str);
+   void SetKey(unsigned int key);
+   unsigned int GetKey() const;
+   void Decrypt();
+   void Encrypt();
+   std::string Decrypt(std::string str, unsigned int key);
+   std::string Encrypt(std::string str, unsigned int key);
  private:
-    char* msg = nullptr;
-    int key = 0;
-    bool is_e = false;
+   std::string msg;
+   unsigned int key;
 };
 
 #endif  // MODULES_CHEZAR_INCLUDE_CHEZAR_H_

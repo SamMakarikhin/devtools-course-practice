@@ -3,117 +3,128 @@
 #include "include/chezar.h"
 
 Chezar::Chezar() {
+    key = 0;
 }
 
-Chezar::Chezar(char *str, int key) {
-    try {
-        if (str == nullptr)
-            throw;
-        this->msg = str;
+Chezar::Chezar(std::string str, unsigned int key) {
+    this->msg = str;
+    if (key >= 26) {
         this->key = key;
-    } catch (...) {
-        std::cerr << "Error constructor" << std::endl;
+    }
+    else {
+        this->key = key % 26;
     }
 }
 
 Chezar::~Chezar() {
 }
 
-bool Chezar::SetKey(int key) {
-    try {
+void Chezar::SetKey(unsigned int key) {
+    if (key >= 26) {
         this->key = key;
-        return true;
-    } catch (...) {
-        return false;
+    }
+    else {
+        this->key = key % 26;
     }
 }
 
-bool Chezar::SetStr(char* str) {
-    try {
-        if (str == nullptr)
-            throw;
-        this->msg = str;
-    } catch (...) {
-        return false;
-    }
-    return true;
+void Chezar::SetStr(std::string str) {
+    this->msg = str;
+    
 }
 
-char* Chezar::GetStr() {
+std::string Chezar::GetStr() const {
     return msg;
 }
 
-bool Chezar::isEncrypt() {
-    return is_e;
-}
-
-int Chezar::GetKey() {
+unsigned int Chezar::GetKey() const {
     return key;
 }
 
-bool Chezar::SetCryptStatus(bool status) {
-    if (status == true || status == false) {
-        is_e = status;
-        return true;
-    } else {
-        return false;
-    }
-}
-
-bool Chezar::Encrypt() {
+void Chezar::Encrypt() {
     if (!is_e) {
-        try {
-            for (unsigned int i = 0; msg[i] != '\0'; ++i) {
-                char ch = msg[i];
-                if (ch >= 'a' && ch <= 'z') {
-                    ch = ch + (key % 26);
-                    if (ch > 'z') {
-                        ch = ch - 'z' + 'a' - 1;
-                    }
-                    msg[i] = ch;
-                } else if (ch >= 'A' && ch <= 'Z') {
-                    ch = ch + (key % 26);
-                    if (ch > 'Z') {
-                        ch = ch - 'Z' + 'A' - 1;
-                    }
-                    msg[i] = ch;
+        for (unsigned int i = 0; msg[i] != '\0'; ++i) {
+            if (msg[i] >= 'a' && msg[i] <= 'z') {
+                msg[i] += key;
+                if (msg[i] > 'z') {
+                    msg[i] = msg[i] - 'z' + 'a' - 1;
+                }
+            } else if (msg[i] >= 'A' && msg[i] <= 'Z') {
+                msg[i] += key;
+                if (msg[i] > 'Z') {
+                    msg[i] = msg[i] - 'Z' + 'A' - 1;
                 }
             }
-            is_e = true;
-            return true;
-        } catch (...) {
-            return false;
-        }
-    } else {
-        return false;
+        };
     }
 }
 
-bool Chezar::Decrypt() {
+void Chezar::Decrypt() {
     if (is_e) {
-        try {
-            for (unsigned int i = 0; msg[i] != '\0'; ++i) {
-                char ch = msg[i];
-                if (ch >= 'a' && ch <= 'z') {
-                    ch = ch - (key % 26);
-                    if (ch < 'a') {
-                        ch = ch + 'z' - 'a' + 1;
-                    }
-                    msg[i] = ch;
-                } else if (ch >= 'A' && ch <= 'Z') {
-                    ch = ch - (key % 26);
-                    if (ch < 'A') {
-                        ch = ch + 'Z' - 'A' + 1;
-                    }
-                    msg[i] = ch;
+        for (unsigned int i = 0; msg[i] != '\0'; ++i) {
+            if (msg[i] >= 'a' && msg[i] <= 'z') {
+                msg[i] -= key;
+                if (msg[i] < 'a') {
+                    msg[i] = msg[i] + 'z' - 'a' + 1;
+                }
+            } else if (msg[i] >= 'A' && msg[i] <= 'Z') {
+                msg[i] -= key;
+                if (msg[i] < 'A') {
+                    msg[i] = msg[i] + 'Z' - 'A' + 1;
                 }
             }
-            is_e = false;
-            return true;
-        } catch (...) {
-            return false;
         }
-    } else {
-        return false;
     }
+}
+
+std::string Chezar::Encrypt(std::string str, unsigned int key) {
+    this->msg = str;
+    if (key >= 26) {
+        this->key = key;
+    }
+    else {
+        this->key = key % 26;
+    }
+    if (!is_e) {
+        for (unsigned int i = 0; msg[i] != '\0'; ++i) {
+            if (msg[i] >= 'a' && msg[i] <= 'z') {
+                msg[i] += key;
+                if (msg[i] > 'z') {
+                    msg[i] = msg[i] - 'z' + 'a' - 1;
+                }
+            } else if (msg[i] >= 'A' && msg[i] <= 'Z') {
+                msg[i] += key;
+                if (msg[i] > 'Z') {
+                    msg[i] = msg[i] - 'Z' + 'A' - 1;
+                }
+            }
+        }
+    }
+    return msg;
+}
+
+std::string Chezar::Decrypt(std::string str, unsigned int key) {
+    this->msg = str;
+    if (key >= 26) {
+        this->key = key;
+    }
+    else {
+        this->key = key % 26;
+    }
+    if (is_e) {
+        for (unsigned int i = 0; msg[i] != '\0'; ++i) {
+            if (msg[i] >= 'a' && msg[i] <= 'z') {
+                msg[i] -= key;
+                if (msg[i] < 'a') {
+                    msg[i] = msg[i] + 'z' - 'a' + 1;
+                }
+            } else if (msg[i] >= 'A' && msg[i] <= 'Z') {
+                msg[i] -= key;
+                if (msg[i] < 'A') {
+                    msg[i] = msg[i] + 'Z' - 'A' + 1;
+                }
+            }
+        }
+    }
+    return msg;
 }
