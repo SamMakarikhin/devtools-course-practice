@@ -3,7 +3,7 @@
 #ifndef MODULES_CHEZAR_INCLUDE_CHEZAR_H_
 #define MODULES_CHEZAR_INCLUDE_CHEZAR_H_
 
-#include <cstring>
+#include <string>
 
 class Chezar {
  public:

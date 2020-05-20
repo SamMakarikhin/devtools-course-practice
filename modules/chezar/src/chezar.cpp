@@ -1,5 +1,6 @@
 // Copyright 2020 Suchkov Makar
 
+#include <string>
 #include "include/chezar.h"
 
 Chezar::Chezar() {
