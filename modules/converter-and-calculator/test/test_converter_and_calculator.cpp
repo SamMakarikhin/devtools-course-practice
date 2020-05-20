@@ -16,7 +16,7 @@ using std::vector;
 using std::string;
 
 class Converter_and_CalculatorTest : public ::testing::Test {
-    protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -37,7 +37,7 @@ class Converter_and_CalculatorTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-    private:
+ private:
     Converter_and_Calculator app_;
     string output_;
 };
