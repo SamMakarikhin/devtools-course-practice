@@ -34,7 +34,7 @@ std::vector<int> QuickSortApp::parsevector(int argc, const char** argv) {
   return vec;
 }
 
-std::vector<int> QuickSortApp::sort (const std::vector<int>& vec) {
+std::vector<int> QuickSortApp::sorting (const std::vector<int>& vec) {
   QuickSort qsort(vec);
   qsort.QSort(0, (vec.size() - 1));
   std::vector<int> res = qsort.GetVector();
@@ -61,7 +61,7 @@ std::string  QuickSortApp::operator()(int argc, const char** argv) {
     return std::string("Wrong number format!");
   }
 
-  message_ = createmessage(sort(vec));
+  message_ = createmessage(sorting(vec));
 
   return message_;
 }
