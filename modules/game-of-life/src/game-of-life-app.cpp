@@ -4,6 +4,7 @@
 
 #include <string>
 #include <sstream>
+#include <exception>
 
 GameOfLifeApp::GameOfLifeApp(): message_(""), mainGrid() {}
 
@@ -44,7 +45,7 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
   try {
     width = std::stoi(argv[1]);
     hight = std::stoi(argv[2]);
-  } catch (std::exception) {
+  } catch (std::exception&) {
     return std::string("Invalid grid size!");
   }
 
@@ -68,7 +69,7 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
 
   try {
     steps = std::stoi(argv[3 + hight * width]);
-  } catch (std::exception) {
+  } catch (std::exception&) {
     return std::string("Invalid steps count!");
   }
 

@@ -4,20 +4,15 @@
 
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <iterator>
 
 #include "include/game-of-life-app.h"
 
 using ::testing::internal::RE;
-using std::vector;
-using std::string;
 
 class GameOfLifeAppTest : public ::testing::Test {
  protected:
-  void Act(vector<string> args_) {
-    vector<const char*> options;
+  void Act(std::vector<std::string> args_) {
+    std::vector<const char*> options;
 
     options.push_back("appname");
     for (size_t i = 0; i < args_.size(); ++i) {
@@ -36,11 +31,11 @@ class GameOfLifeAppTest : public ::testing::Test {
 
  private:
   GameOfLifeApp app_;
-  string output_;
+  std::string output_;
 };
 
 TEST_F(GameOfLifeAppTest, Do_Print_Help_Without_Arguments) {
-  vector<string> args = {};
+  std::vector<std::string> args = {};
 
   Act(args);
 
@@ -48,7 +43,7 @@ TEST_F(GameOfLifeAppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(GameOfLifeAppTest, Invalid_Arguments_Test) {
-  vector<string> args = {"a", "b", "c"};
+  std::vector<std::string> args = {"a", "b", "c"};
 
   Act(args);
 
@@ -56,7 +51,7 @@ TEST_F(GameOfLifeAppTest, Invalid_Arguments_Test) {
 }
 
 TEST_F(GameOfLifeAppTest, Size_Not_Entered_Test) {
-  vector<string> args = { "1" };
+  std::vector<std::string> args = { "1" };
 
   Act(args);
 
@@ -64,7 +59,7 @@ TEST_F(GameOfLifeAppTest, Size_Not_Entered_Test) {
 }
 
 TEST_F(GameOfLifeAppTest, Too_Few_Arguments_Test) {
-  vector<string> args = { "2", "2", "." };
+  std::vector<std::string> args = { "2", "2", "." };
 
   Act(args);
 
@@ -72,7 +67,7 @@ TEST_F(GameOfLifeAppTest, Too_Few_Arguments_Test) {
 }
 
 TEST_F(GameOfLifeAppTest, Wrong_Grid_Format_Test) {
-  vector<string> args = { "2", "2", "r", "e", "a", "d", "4" };
+  std::vector<std::string> args = { "2", "2", "r", "e", "a", "d", "4" };
 
   Act(args);
 
@@ -80,7 +75,7 @@ TEST_F(GameOfLifeAppTest, Wrong_Grid_Format_Test) {
 }
 
 TEST_F(GameOfLifeAppTest, Invalid_Steps_count) {
-  vector<string> args = { "2", "2", "*", ".", "*", ".", "a" };
+  std::vector<std::string> args = { "2", "2", "*", ".", "*", ".", "a" };
 
   Act(args);
 
@@ -88,7 +83,7 @@ TEST_F(GameOfLifeAppTest, Invalid_Steps_count) {
 }
 
 TEST_F(GameOfLifeAppTest, Can_Calculate_Next_Grid) {
-  vector<string> args = { "3", "3",  ".", "*", ".",
+  std::vector<std::string> args = { "3", "3",  ".", "*", ".",
     ".", "*", ".", ".", "*", ".", "1" };
 
   Act(args);
