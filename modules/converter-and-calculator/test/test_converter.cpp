@@ -1,4 +1,4 @@
-﻿  // Copyright 2020 Zakharov Mikhail
+﻿// Copyright 2020 Zakharov Mikhail
 
 #include <gtest/gtest.h>
 

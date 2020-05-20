@@ -1,12 +1,9 @@
 // Copyright 2020 Zakharov Mikhail
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <sstream>
+#include <string>
 #include <string>
 #include <sstream>
-
 #include "include/calculator.h"
 #include "include/converter.h"
 #include "include/converter_and_calculator.h"

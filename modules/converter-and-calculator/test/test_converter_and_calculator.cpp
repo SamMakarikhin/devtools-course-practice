@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class Converter_and_CalculatorTest : public ::testing::Test {
- protected:
+    protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -36,7 +36,7 @@ class Converter_and_CalculatorTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
- private:
+    private:
     Converter_and_Calculator app_;
     string output_;
 };
@@ -73,7 +73,7 @@ TEST_F(Converter_and_CalculatorTest, Can_Detect_Wrong_Operation_Format) {
     Assert("Wrong operation format!");
 }
 
-TEST_F(Converter_and_CalculatorTest, Can_Add) {
+TEST_F(Converter_and_CalculatorTest, Can_Sum_Decimal_And_Binary) {
     vector<string> args = {"157", "10", "1011", "2", "+"};
 
     Act(args);
@@ -81,7 +81,7 @@ TEST_F(Converter_and_CalculatorTest, Can_Add) {
     Assert("a = 157 b = 1011 c = 168");
 }
 
-TEST_F(Converter_and_CalculatorTest, Can_Diff) {
+TEST_F(Converter_and_CalculatorTest, Can_Diff_Decimal_And_Binary) {
     vector<string> args = {"157", "10", "234", "8", "-"};
 
     Act(args);
@@ -89,7 +89,7 @@ TEST_F(Converter_and_CalculatorTest, Can_Diff) {
     Assert("a = 157 b = 234 c = 1");
 }
 
-TEST_F(Converter_and_CalculatorTest, Can_Mult) {
+TEST_F(Converter_and_CalculatorTest, Can_Mult_Two_Decimal) {
     vector<string> args = {"65", "10", "2", "10", "*"};
 
     Act(args);
@@ -97,7 +97,7 @@ TEST_F(Converter_and_CalculatorTest, Can_Mult) {
     Assert("a = 65 b = 2 c = 130");
 }
 
-TEST_F(Converter_and_CalculatorTest, Can_Divide) {
+TEST_F(Converter_and_CalculatorTest, Can_Div_Two_Decimal) {
     vector<string> args = {"54", "10", "27", "10", "/"};
 
     Act(args);
