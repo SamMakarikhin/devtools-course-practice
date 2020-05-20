@@ -1,10 +1,10 @@
 // Copyright 2020 Suchkov Makar
 
-#include <string>
-
 #include <gtest/gtest.h>
 
 #include "include/chezar.h"
+
+#include <string>
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments) {
     // Arrange & Assert
@@ -12,7 +12,7 @@ TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments) {
     std::string z("abcdefghijklmnopqrstuvwxyz");
     std::string res(Decrypt(a, 5));
     // Act
-    EXPECT_STRCASEEQ(z, res);
+    EXPECT_STRCASEEQ("abcdefghijklmnopqrstuvwxyz", res);
 }
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Crypt_Correct_Data_Arguments) {
@@ -21,7 +21,7 @@ TEST(Suchkov_Makar_Chezar_Test, Can_Crypt_Correct_Data_Arguments) {
     std::string z("fghijklmnopqrstuvwxyzabcde");
     std::string res(Encrypt(a, 5));
     // Act
-    EXPECT_STRCASEEQ(z, res);
+    EXPECT_STRCASEEQ("fghijklmnopqrstuvwxyzabcde", res);
 }
 
 TEST(Suchkov_Makar_Chezar_Test, Can_Decrypt_Correct_Data_Arguments_Upper) {
