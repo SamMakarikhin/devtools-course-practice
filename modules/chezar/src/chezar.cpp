@@ -3,7 +3,7 @@
 #include "include/chezar.h"
 #include <string>
 
-std::string Encrypt(std::string str, unsigned int key) {
+std::string Chezar::Encrypt(std::string str, unsigned int key) {
     for (unsigned int i = 0; str[i] != '\0'; ++i) {
         if (str[i] >= 'a' && str[i] <= 'z') {
             str[i] += key;
@@ -20,7 +20,7 @@ std::string Encrypt(std::string str, unsigned int key) {
     return str;
 }
 
-std::string Decrypt(std::string str, unsigned int key) {
+std::string Chezar::Decrypt(std::string str, unsigned int key) {
     for (unsigned int i = 0; str[i] != '\0'; ++i) {
         if (str[i] >= 'a' && str[i] <= 'z') {
             str[i] -= key;

@@ -5,9 +5,11 @@
 
 #include <string>
 
-#define MAXKEYVALUE 5
-
-std::string Decrypt(std::string str, unsigned int key);
-std::string Encrypt(std::string str, unsigned int key);
+class Chezar {
+ public:
+  static std::string Decrypt(std::string str, unsigned int key);
+  static std::string Encrypt(std::string str, unsigned int key);
+  static const unsigned int max_key_value = 5;
+};
 
 #endif  // MODULES_CHEZAR_INCLUDE_CHEZAR_H_
