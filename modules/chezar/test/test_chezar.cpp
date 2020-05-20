@@ -23,8 +23,9 @@ TEST(Suchkov_Makar_ChezarTest, Can_With_Arguments_Create) {
     int key = 1488;
     // Act
     Chezar estr1(a, key);
+    int res = estr.GetKey();
     // Assert
-    EXPECT_EQ(6, estr.GetKey());
+    EXPECT_EQ(6, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Add_Key_Data) {
@@ -33,16 +34,17 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_Key_Data) {
     int key;
     // Act
     key = 9999999;
-    estr.SetKey(key)
+    estr.SetKey(key);
+    int res = estr.GetKey();
     // Assert
-    EXPECT_EQ(9, estr.GetKey());
+    EXPECT_EQ(9, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Add_Str_Data) {
     // Arrange
     Chezar estr;
     std::string a = "abcdefghijklmnopqrstuvwxyz";
-    estr.SetStr(a)
+    estr.SetStr(a);
     // Act & Assert
     EXPECT_STRCASEEQ(a, estr.GetStr());
 }
