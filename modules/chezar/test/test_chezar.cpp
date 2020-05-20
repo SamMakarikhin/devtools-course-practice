@@ -19,7 +19,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Create) {
 
 TEST(Suchkov_Makar_ChezarTest, Can_With_Arguments_Create) {
     // Arrange
-    std::string a = "abcdefghijklmnopqrstuvwxyz";
+    std::string a("abcdefghijklmnopqrstuvwxyz");
     int key = 1488;
     // Act
     Chezar estr(a, key);
@@ -43,59 +43,65 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_Key_Data) {
 TEST(Suchkov_Makar_ChezarTest, Can_Add_Str_Data) {
     // Arrange
     Chezar estr;
-    std::string a = "abcdefghijklmnopqrstuvwxyz";
+    std::string a("abcdefghijklmnopqrstuvwxyz");
     estr.SetStr(a);
+    std::string res(estr.GetStr());
     // Act & Assert
-    EXPECT_STRCASEEQ(a, estr.GetStr());
+    EXPECT_STRCASEEQ(a, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Correct_Data) {
     // Arrange
-    std::string a = "abcdefghijklmnopqrstuvwxyz";
+    std::string a("abcdefghijklmnopqrstuvwxyz");
     Chezar estr(a, 5);
     // Act
     estr.Encrypt();
-    std::string z = "fghijklmnopqrstuvwxyzabcde";
+    std::string z("fghijklmnopqrstuvwxyzabcde");
+    std::string res(estr.GetStr());
     // Assert
-    EXPECT_STRCASEEQ(z, estr.GetStr());
+    EXPECT_STRCASEEQ(z, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Correct_Data) {
     // Arrange
-    std::string a = "fghijklmnopqrstuvwxyzabcde";
+    std::string a("fghijklmnopqrstuvwxyzabcde");
     Chezar estr(a, 5);
     // Act
     estr.Decrypt();
-    std::string z = "abcdefghijklmnopqrstuvwxyz";
+    std::string z("abcdefghijklmnopqrstuvwxyz");
+    std::string res(estr.GetStr());
     // Assert
-    EXPECT_STRCASEEQ(z, estr.GetStr());
+    EXPECT_STRCASEEQ(z, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Correct_Data) {
     // Arrange
-    std::string a = "abcdefghijklmnopqrstuvwxyz";
+    std::string a("abcdefghijklmnopqrstuvwxyz");
     Chezar estr(a, 5);
     // Act
     estr.Encrypt();
-    std::string z = "fghijklmnopqrstuvwxyzabcde";
+    std::string z("fghijklmnopqrstuvwxyzabcde");
+    std::string res(estr.GetStr());
     // Assert
-    EXPECT_STRCASEEQ(z, estr.GetStr());
+    EXPECT_STRCASEEQ(z, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Correct_Data_Arguments) {
-    // Arrange
-    std::string a = "fghijklmnopqrstuvwxyzabcde";
+    // Arrange & Assert
+    std::string a("fghijklmnopqrstuvwxyzabcde");
     Chezar estr;
-    std::string z = "abcdefghijklmnopqrstuvwxyz";
-    // Assert & Act
-    EXPECT_STRCASEEQ(z, estr.Decrypt(a, 5));
+    std::string z("abcdefghijklmnopqrstuvwxyz");
+    std::string res(estr.Decrypt(a, 5));
+    // Act
+    EXPECT_STRCASEEQ(z, res);
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Correct_Data_Arguments) {
-    // Arrange
-    std::string a = "abcdefghijklmnopqrstuvwxyz";
+    // Arrange & Assert
+    std::string a("abcdefghijklmnopqrstuvwxyz");
     Chezar estr;
-    std::string z = "fghijklmnopqrstuvwxyzabcde";
-    // Assert & Act
-    EXPECT_STRCASEEQ(z, estr.Encrypt(a, 5));
+    std::string z("fghijklmnopqrstuvwxyzabcde");
+    std::string res(estr.Encrypt(a, 5));
+    // Act
+    EXPECT_STRCASEEQ(z, res);
 }
