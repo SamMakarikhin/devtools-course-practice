@@ -5,6 +5,8 @@
 
 #include <string>
 
+#define MAXKEYVALUE 5
+
 std::string Decrypt(std::string str, unsigned int key);
 std::string Encrypt(std::string str, unsigned int key);
 

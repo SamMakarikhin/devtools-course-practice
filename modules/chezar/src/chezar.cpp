@@ -1,7 +1,7 @@
 // Copyright 2020 Suchkov Makar
 
-#include <string>
 #include "include/chezar.h"
+#include <string>
 
 std::string Encrypt(std::string str, unsigned int key) {
     for (unsigned int i = 0; str[i] != '\0'; ++i) {
