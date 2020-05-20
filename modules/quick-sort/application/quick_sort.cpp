@@ -9,6 +9,6 @@
 int main(int argc, const char** argv) {
     QuickSortApp app;
     std::string output = app(argc, argv);
-    std::cout<<"%s\n"<< output.c_str();
+    std::cout << "%s\n" << output.c_str();
     return 0;
 }
