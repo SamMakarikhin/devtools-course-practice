@@ -44,16 +44,16 @@ TEST_F(InterpolationSearchAppTest, Detects_Wrong_Args) {
 
     Act(args);
 
-    Assert("Bad arguments!");
+    Assert("Wrong arguments");
 }
 
 
 TEST_F(InterpolationSearchAppTest, Add_Wrong_Elem) {
-    std::vector<std::string> args = {"1", "l", "2"};
+    std::vector<std::string> args = {"2", "l", "2"};
 
     Act(args);
 
-    Assert("Invalid value: l");
+    Assert("Wrong arguments");
 }
 
 TEST_F(InterpolationSearchAppTest, Get_Result) {

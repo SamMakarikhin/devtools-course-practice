@@ -9,7 +9,7 @@
 
 class InterpolationSearchApp {
  public:
-	InterpolationSearchApp();
+	InterpolationSearchApp() = default;
     std::string operator()(int argc, const char** argv);
  private:
     std::string help(const char* appname, const char* message = "");
