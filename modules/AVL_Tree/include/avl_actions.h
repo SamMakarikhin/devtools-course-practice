@@ -1,7 +1,7 @@
 // Copyright 2020 Pauzin Leonid
 
-#ifndef MODULES_RB_TREE_INCLUDE_RB_OPERATION_H_
-#define MODULES_RB_TREE_INCLUDE_RB_OPERATION_H_
+#ifndef MODULES_AVL_TREE_INCLUDE_AVL_ACTIONS_H_
+#define MODULES_AVL_TREE_INCLUDE_AVL_ACTIONS_H_
 
 #include <string>
 #include <vector>
@@ -9,20 +9,22 @@
 
 class Operation {
  public:
-   explicit Operation(const int _argc) : argc(_argc) {}
-   virtual ~Operation() = default;
-   static Operation* makeOperation(std::string op);
-   virtual std::string operator()(AVL_Tree* tree, const std::vector<int>& arg) = 0;
-   int getArgc() { return argc; }
+    explicit Operation(const int _argc) : argc(_argc) {}
+    virtual ~Operation() = default;
+    static Operation* makeOperation(std::string op);
+    virtual std::string operator()(AVL_Tree* tree, 
+      const std::vector<int>& arg) = 0;
+    int getArgc() { return argc; }
  private:
-   int argc;
+    int argc;
 };
 
 
 class InsertOperation: public Operation {
  public:
     InsertOperation(): Operation(2) {}
-    std::string operator()(AVL_Tree* tree, const std::vector<int>& arg) override;
+    std::string operator()(AVL_Tree* tree,
+      const std::vector<int>& arg) override;
 };
 
 class RemoveOperation: public Operation {
@@ -31,4 +33,4 @@ class RemoveOperation: public Operation {
     std::string operator()(AVL_Tree* tree, const std::vector<int>& arg) override;
 };
 
-#endif  // MODULES_AVL_TREE
+#endif  // MODULES_AVL_TREE_INCLUDE_AVL_ACTIONS_H_

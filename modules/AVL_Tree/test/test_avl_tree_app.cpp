@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "include/avl_tree_app.h"
 
