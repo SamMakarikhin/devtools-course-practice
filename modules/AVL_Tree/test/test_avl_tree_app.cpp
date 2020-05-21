@@ -62,8 +62,6 @@ TEST_F(AvlAppTest, Cant_Add_Wrong_Number) {
   Assert("Invalid value: a");
 }
 
-
-
 TEST_F(AvlAppTest, Can_insert_value) {
   std::vector<std::string> args = { "insert", "1"};
 
@@ -87,6 +85,15 @@ TEST_F(AvlAppTest, Cant_remove) {
   Act(args);
 
   Assert("\\(No that data in tree\\)");
+}
+
+TEST_F(AvlAppTest, Can_remove_value) {
+  std::vector<std::string> args = { "insert", "1",
+    "remove", "1"};
+
+  Act(args);
+
+  Assert("");
 }
 
 
