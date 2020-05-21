@@ -18,8 +18,8 @@ class InterpolationSearchApp {
     int ParseValue(const std::string& data);
 
     using Arguments = struct {
-       std::vector<int> vec;
-       int toFind;
+      std::vector<int> vec;
+      int toFind;
     };
 
     std::stringstream _sstream;

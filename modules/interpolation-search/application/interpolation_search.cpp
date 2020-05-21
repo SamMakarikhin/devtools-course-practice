@@ -5,12 +5,8 @@
 #include "include/interpolation_search_application.h"
 
 int main(int argc, const char** argv) {
-	InterpolationSearchApp app;
+  InterpolationSearchApp app;
+  std::cout << app(argc, argv) << std::endl;
 
-    //std::string output = app(argc, argv);
-    //std::cout << output.c_str();
-
-	std::cout << app(argc, argv) << std::endl;
-
-    return 0;
+  return 0;
 }
