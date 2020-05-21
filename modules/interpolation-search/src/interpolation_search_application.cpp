@@ -16,7 +16,7 @@ int InterpolationSearchApp::ParseValue(const std::string& data) {
     }
   }
   number = std::stoi(data);
-	
+
   return number;
 }
 
@@ -26,8 +26,7 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
   if (!validateNumberOfArguments(argc, argv)) {
     return _sstream.str();
   }
-  try 
-  {
+  try {
     int n = ParseValue(argv[1]);
     args.vec = std::vector<int>(n);
     for (int i = 0; i < n; i++) {
@@ -44,14 +43,16 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
   }
 }
 
-std::string InterpolationSearchApp::help(const char* appname, const char* message) {
-  std::cout << message << std::endl;
-  return std::string(message) + "This is a Interpolation Search application.\n\n"+
-        "Please provide arguments in the following format:\n\n"+
-        "  $ " + appname + " <size> " + "<el_1>" + "<el_2>" + "..." + "<el_n>" + "<el_to_find>" + "\n\n" +
-        "Where <size> is number of elements in vector\n" +
-		"<el_1>, <el_2> and so on are vector's elements (int)\n" + 
-		"<el_to_find> is the value you are looking for \n\n";
+std::string InterpolationSearchApp::help(const char* app, const char* mess) {
+  std::cout << mess << std::endl;
+  return std::string(mess) +
+    "This is a Interpolation Search application.\n\n"+
+	"Please provide arguments in the following format:\n\n"+
+    "  $ " + app + " <size> " + "<el_1>" + "<el_2>" + "..." +
+	"<el_n>" + "<el_to_find>" + "\n\n" +
+    "Where <size> is number of elements in vector\n" +
+	"<el_1>, <el_2> and so on are vector's elements (int)\n" +
+	"<el_to_find> is the value you are looking for \n\n";
 }
 
 bool InterpolationSearchApp::validateNumberOfArguments(int argc, const char** argv) {
