@@ -8,6 +8,7 @@ add_test(
     NAME ${prefix}_can_Run
     COMMAND ${APPLICATION}
 )
+
 set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
@@ -26,7 +27,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_detects_Wrong_Args PROPERTIES
-    PASS_REGULAR_EXPRESSION "Bad arguments!"
+    PASS_REGULAR_EXPRESSION "Wrong arguments"
     LABELS "${MODULE}")
 
 add_test(
@@ -35,7 +36,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_add_Wrong_Elem PROPERTIES
-    PASS_REGULAR_EXPRESSION "Invalid value: l"
+    PASS_REGULAR_EXPRESSION "Wrong arguments"
     LABELS "${MODULE}")
 
 add_test(
