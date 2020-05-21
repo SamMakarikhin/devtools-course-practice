@@ -10,13 +10,13 @@ template <typename T>
 class THeap {
  public:
   THeap() = default;
-  THeap(const THeap<T>& heap) { vector = heap.vector; }
+  explicit THeap(const std::vector<T>& buffer);
   void Push(T value);
   T Remove();
   void PrintHeap();
   size_t GetSize();
   THeap<T>& operator = (const THeap<T>& heap_) = default;
-  std::vector<T> HeapSorting(const std::vector<T>& buffer);
+  std::vector<T> HeapSorting();
 
  private:
   std::vector<T> vector;
@@ -28,6 +28,14 @@ class THeap {
   int GetRightChild(int parent);
   void Swap(int child, int parent);
 };
+
+template<typename T>
+THeap<T>::THeap(const std::vector<T>& buffer) {
+    for (size_t i = 0; i < buffer.size(); i++) {
+        vector.push_back(buffer[i]);
+        Emersion();
+    }
+}
 
 template<typename T>
 void THeap<T>::Push(T value) {
@@ -128,14 +136,11 @@ size_t THeap<T>::GetSize() {
 }
 
 template <typename T>
-std::vector<T> THeap<T>::HeapSorting(const std::vector<T>&
-    buffer) {
-    vector.clear();
-    for (auto item : buffer)
-        Push(item);
+std::vector<T> THeap<T>::HeapSorting() {
+    THeap<T> copy(vector);
     std::vector<T> result_vector(GetSize());
     for (size_t index = 0; index < result_vector.size(); ++index) {
-        result_vector[index] = Remove();
+        result_vector[index] = copy.Remove();
     }
     return result_vector;
 }

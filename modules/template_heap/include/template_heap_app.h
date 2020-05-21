@@ -10,6 +10,7 @@ class Heap_App {
     std::vector<float> Argc_app;
 
     std::string HelpMessage(const char* appname);
+    bool Parsing(int argc, const char** argv);
     bool ValidateNumderOfArguments(int argc, const char** argv);
 
  public:
