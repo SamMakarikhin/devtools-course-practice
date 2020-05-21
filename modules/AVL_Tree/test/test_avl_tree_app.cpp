@@ -73,7 +73,8 @@ TEST_F(AvlAppTest, Can_insert_value) {
 }
 
 TEST_F(AvlAppTest, Can_insert_more_than_1_value) {
-  std::vector<std::string> args = { "insert", "1", "insert", "2", "insert", "4" };
+  std::vector<std::string> args = { "insert", "1",
+    "insert", "2", "insert", "4" };
 
   Act(args);
 
