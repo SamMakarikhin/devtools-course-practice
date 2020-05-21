@@ -1,8 +1,5 @@
 // Copyright 2020 Pauzin Leonid
 
-#ifndef MODULES_AVL_TREE
-#define MODULES_AVL_TREE
-
 #include <string>
 #include <vector>
 #include <sstream>
@@ -10,7 +7,6 @@
 
 #include "include/avl_tree_app.h"
 #include "include/avl_actions.h"
-
 
 std::string AvlApp::operator()(int argc, const char** argv) {
   if (!validateNumberOfArguments(argc, argv)) {
@@ -64,5 +60,3 @@ int AvlApp::parseToValue(std::string strval) {
     throw std::invalid_argument("Invalid value: " + strval);
   }
 }
-
-#endif  // MODULES_AVL_TREE
