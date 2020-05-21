@@ -71,5 +71,5 @@ TEST_F(InterpolationSearchAppTest, Get_Result) {
     Act(args);
 
 	// Assert
-    Assert("");
+    Assert("1");
 }
