@@ -14,7 +14,7 @@ class InterpolationSearchApp {
     std::string operator()(int argc, const char** argv);
  private:
     std::string help(const char* appname, const char* message = "");
-    bool validateNumberOfArguments(int argc, const char** argv);
+    bool validateNumOfArgs(int argc, const char** argv);
     int ParseValue(const std::string& data);
 
     using Arguments = struct {
