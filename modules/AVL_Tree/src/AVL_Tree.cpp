@@ -171,7 +171,7 @@ Status AVL_Tree::Insert(const int& key_) {
     return STATUS_OK;
 }
 
-Status AVL_Tree::Remove(const int& key_) {    
+Status AVL_Tree::Remove(const int& key_) {
     if (RootNode == nullptr)
       throw std::invalid_argument("No that data in tree");
     RootNode = Remove(RootNode, key_);
