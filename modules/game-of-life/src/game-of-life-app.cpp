@@ -22,7 +22,7 @@ void GameOfLifeApp::help(const char* appname, const char* message) {
 }
 
 bool GameOfLifeApp::validateArguments(int size, int argc, const char** argv) {
-  if (static_cast<uint32_t>(argc) != size + 4) {
+  if (argc != size + 4) {
     message_ += "ERROR: You need to fill in the grid completely\n";
     message_ += "and enter the number of steps\n";
     return false;
