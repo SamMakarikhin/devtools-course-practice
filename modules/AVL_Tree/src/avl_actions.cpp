@@ -7,7 +7,7 @@
 #include "include/avl_actions.h"
 
 Operation* Operation::makeOperation(std::string op) {
-    Operation* res = nullptr;//
+    Operation* res = nullptr;
     if (op == "insert") {
         res = new InsertOperation;
     }
