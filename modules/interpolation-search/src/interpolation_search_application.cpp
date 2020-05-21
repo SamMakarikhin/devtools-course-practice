@@ -46,13 +46,13 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
 std::string InterpolationSearchApp::help(const char* app, const char* mess) {
   std::cout << mess << std::endl;
   return std::string(mess) +
-   "This is a Interpolation Search application.\n\n"+
-   "Please provide arguments in the following format:\n\n"+
-   "  $ " + app + " <size> " + "<el_1>" + "<el_2>" + "..." +
-   "<el_n>" + "<el_to_find>" + "\n\n" +
-   "Where <size> is number of elements in vector\n" +
-   "<el_1>, <el_2> and so on are vector's elements (int)\n" +
-   "<el_to_find> is the value you are looking for \n\n";
+  "This is a Interpolation Search application.\n\n"+
+  "Please provide arguments in the following format:\n\n"+
+  "  $ " + app + " <size> " + "<el_1>" + "<el_2>" + "..." +
+  "<el_n>" + "<el_to_find>" + "\n\n" +
+  "Where <size> is number of elements in vector\n" +
+  "<el_1>, <el_2> and so on are vector's elements (int)\n" +
+  "<el_to_find> is the value you are looking for \n\n";
 }
 
 bool InterpolationSearchApp::validateNumOfArgs(int argc, const char** argv) {
