@@ -30,36 +30,46 @@ class InterpolationSearchAppTest : public ::testing::Test {
 	 InterpolationSearchApp app_;
 };
 
-
 TEST_F(InterpolationSearchAppTest, Print_Help_Without_Args) {
+	// Arrange
     std::vector<std::string> args = {};
 
+	// Act
     Act(args);
 
+	// Assert
     Assert("This is a Interpolation Search application\\..*");
 }
 
 TEST_F(InterpolationSearchAppTest, Detects_Wrong_Args) {
+	// Arrange
     std::vector<std::string> args = {"1"};
 
+	// Act
     Act(args);
 
+	// Assert
     Assert("Wrong arguments");
 }
 
-
 TEST_F(InterpolationSearchAppTest, Add_Wrong_Elem) {
+	// Arrange
     std::vector<std::string> args = {"2", "l", "2"};
 
+	// Act
     Act(args);
 
+	// Assert
     Assert("Wrong arguments");
 }
 
 TEST_F(InterpolationSearchAppTest, Get_Result) {
+	// Arrange
     std::vector<std::string> args = { "2", "9", "12", "12" };
 
+	// Act
     Act(args);
 
-    Assert("Found at: 1");
+	// Assert
+    Assert("1");
 }

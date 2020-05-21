@@ -1,12 +1,11 @@
 // Copyright 2020 Mityagina Daria
 
-#include "include/interpolation_search_application.h"
 #include <vector>
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <algorithm>
-#include "include/interpolation_search.h"
+#include "include/interpolation_search_application.h"
 
 int InterpolationSearchApp::ParseValue(const std::string& data) {
 	int number = 0;
