@@ -38,11 +38,9 @@ bool Converter_and_Calculator::validateNumberOfArguments
 double parseInt(const char* arg) {
     char* end;
     int value = strtol(arg, &end, 0);
-
     if (end[0]) {
         throw std::string("Wrong number format!");
     }
-
     return value;
 }
 
