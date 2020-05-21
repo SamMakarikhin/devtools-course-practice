@@ -4,8 +4,6 @@
 
 #include <vector>
 #include <string>
-#include <iostream>
-
 #include "include/avl_tree_app.h"
 
 using ::testing::internal::RE;
@@ -95,9 +93,3 @@ TEST_F(AvlAppTest, Can_remove_value) {
 
   Assert("");
 }
-
-
-
-
-
-

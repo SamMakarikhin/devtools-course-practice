@@ -5,7 +5,6 @@
 
 #include <string>
 #include <sstream>
-#include <vector>
 #include "include/AVL_Tree.h"
 
 class AvlApp {
