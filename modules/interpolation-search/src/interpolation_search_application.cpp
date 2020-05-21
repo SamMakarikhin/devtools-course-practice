@@ -2,6 +2,7 @@
 
 #include "include/interpolation_search_application.h"
 #include <vector>
+#include <iostream>
 #include <string>
 #include <sstream>
 #include "include/interpolation_search.h"
@@ -17,7 +18,7 @@ int InterpolationSearchApp::ParseValue(const std::string& data) {
 	return number;
 }
 
-InterpolationSearchApp::InterpolationSearchApp() : InterpolationSearchApp(1, 1, 1) {}
+InterpolationSearchApp::InterpolationSearchApp() {}
 
 std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
 	Arguments args;
@@ -62,7 +63,7 @@ bool InterpolationSearchApp::validateNumberOfArguments(int argc, const char** ar
         _sstream << help(argv[0]);
         return false;
     } else if (argc != ParseValue(argv[1]) + 2) {
-		help(appName, "Wrong number of arguments \n\n");
+		_sstream << help("Wrong number of arguments \n\n");
 		return false;
 	}
 	return true;
