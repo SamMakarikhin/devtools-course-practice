@@ -6,7 +6,7 @@
 #include <sstream>
 #include <exception>
 
-GameOfLifeApp::GameOfLifeApp(): message_(""), mainGrid() {}
+GameOfLifeApp::GameOfLifeApp(): message_("") {}
 
 void GameOfLifeApp::help(const char* appname, const char* message) {
   message_ =
@@ -21,9 +21,8 @@ void GameOfLifeApp::help(const char* appname, const char* message) {
     "Example: \n" + "3 2 . * . * . * 3";
 }
 
-bool GameOfLifeApp::validateArguments(int argc, const char** argv) {
-  if (static_cast<uint32_t>(argc) != mainGrid.GetHeight()
-    * mainGrid.GetWight() + 4) {
+bool GameOfLifeApp::validateArguments(int size, int argc, const char** argv) {
+  if (static_cast<uint32_t>(argc) != size + 4) {
     message_ += "ERROR: You need to fill in the grid completely\n";
     message_ += "and enter the number of steps\n";
     return false;
@@ -32,6 +31,7 @@ bool GameOfLifeApp::validateArguments(int argc, const char** argv) {
 }
 
 std::string GameOfLifeApp::operator()(int argc, const char** argv) {
+  GameOfLifeGrid mainGrid;
   int width, hight, steps;
 
   if (argc == 1) {
@@ -50,7 +50,7 @@ std::string GameOfLifeApp::operator()(int argc, const char** argv) {
   }
 
   mainGrid = GameOfLifeGrid(width, hight);
-  if (!validateArguments(argc, argv)) {
+  if (!validateArguments(width * hight, argc, argv)) {
     return message_;
   }
 

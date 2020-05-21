@@ -14,9 +14,8 @@ class GameOfLifeApp {
 
  private:
   void help(const char* appname, const char* message = "");
-  bool validateArguments(int argc, const char** argv);
+  bool validateArguments(int size, int argc, const char** argv);
   std::string message_;
-  GameOfLifeGrid mainGrid;
 };
 
 #endif  // MODULES_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_APP_H_
