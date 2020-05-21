@@ -1,6 +1,5 @@
 // Copyright 2020 Poletueva Anastasia
 
-#include <stdlib.h>
 #include <iostream>
 #include <string>
 
@@ -9,6 +8,6 @@
 int main(int argc, const char** argv) {
     QuickSortApp app;
     std::string output = app(argc, argv);
-    std::cout << "%s\n" << output.c_str();
+    std::cout << "%s"<< std::endl << output.c_str() << std::endl;
     return 0;
 }
