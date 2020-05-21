@@ -1,7 +1,7 @@
 // Copyright 2020 Myshkin Andrey
 
 #include "include/AVL_Tree.h"
-
+#include <stdexcept>
 
 int AVL_Tree::BalanceFactor(Node* top) {
     return GetHeight(top->rightNode) - GetHeight(top->leftNode);
@@ -152,23 +152,30 @@ int AVL_Tree::GetKey(Node* top) {
 }
 
 int AVL_Tree::FindMin(void) {
+    if(RootNode == nullptr)
+      throw std::invalid_argument("No data in tree");
     Node* ptr = FindMin(RootNode);
     return ptr->key;
 }
 
 int AVL_Tree::FindMax(void) {
+    if (RootNode == nullptr)
+      throw std::invalid_argument("No data in tree");
     Node* ptr = FindMax(RootNode);
     return ptr->key;
 }
 
 Status AVL_Tree::Insert(const int& key_) {
     if (RootNode == nullptr) return STATUS_ERR_NULL_PTR_ROOT;
+
     RootNode = Insert(RootNode, key_);
     return STATUS_OK;
 }
 
 Status AVL_Tree::Remove(const int& key_) {
-    if (RootNode == nullptr) return STATUS_ERR_NULL_PTR_ROOT;
+    //if (RootNode == nullptr) return STATUS_ERR_NULL_PTR_ROOT;
+    if (RootNode == nullptr)
+      throw std::invalid_argument("No that data in tree");
     RootNode = Remove(RootNode, key_);
     return STATUS_OK;
 }
