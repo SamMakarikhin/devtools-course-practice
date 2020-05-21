@@ -4,16 +4,15 @@
 
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 template <typename T>
 class THeap {
  public:
   THeap() = default;
+  THeap(const THeap<T>& heap) { vector = heap.vector; }
   explicit THeap(const std::vector<T>& buffer);
   void Push(T value);
   T Remove();
-  void PrintHeap();
   size_t GetSize();
   THeap<T>& operator = (const THeap<T>& heap_) = default;
   std::vector<T> HeapSorting();
@@ -114,20 +113,6 @@ template <typename T>
 int THeap<T>::GetRightChild(int parent) {
   int child = 2 * parent + 2;
   return child;
-}
-
-template <typename T>
-void THeap<T>::PrintHeap() {
-  int i = 0;
-  int k = 1;
-  while (i < this->GetSize()) {
-    while ((i < k) && (i < this->GetSize())) {
-      std::cout << vector[i] << "  ";
-      i++;
-    }
-    std::cout << std::endl;
-    k = k * 2 + 1;
-  }
 }
 
 template <typename T>

@@ -63,18 +63,18 @@ TEST(THeap, Remove_from_empty_heap) {
   ASSERT_ANY_THROW(a.Remove());
 }
 
-TEST(THeap, Can_print_heap) {
-  // Arrange
-  THeap<int> a;
-
-  // Act
-  a.Push(5);
-  a.Push(8);
-  a.Push(10);
-
-  // Assert
-  ASSERT_NO_THROW(a.PrintHeap());
-}
+//TEST(THeap, Can_print_heap) {
+//  // Arrange
+//  THeap<int> a;
+//
+//  // Act
+//  a.Push(5);
+//  a.Push(8);
+//  a.Push(10);
+//
+//  // Assert
+//  ASSERT_NO_THROW(a.PrintHeap());
+//}
 
 TEST(THeap, Can_get_size) {
   // Arrange
