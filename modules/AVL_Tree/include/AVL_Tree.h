@@ -1,4 +1,4 @@
-// Copyright 2020 Myshkin Andrey
+// Copyright 2020 Myshkin Andrey & Pauzin Leonid
 #ifndef MODULES_AVL_TREE_INCLUDE_AVL_TREE_H_
 #define MODULES_AVL_TREE_INCLUDE_AVL_TREE_H_
 
