@@ -19,6 +19,4 @@ class AvlApp {
     std::stringstream _sstream;
 };
 
-
-
 #endif  // MODULES_AVL_TREE_INCLUDE_AVL_TREE_APP_H_

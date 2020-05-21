@@ -1,4 +1,4 @@
-// Copyright 2020 Myshkin Andrey
+// Copyright 2020 Myshkin Andrey & Pauzin Leonid
 
 #include "include/AVL_Tree.h"
 #include <stdexcept>
