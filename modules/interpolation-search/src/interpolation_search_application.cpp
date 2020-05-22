@@ -1,5 +1,7 @@
 // Copyright 2020 Mityagina Daria
 
+#include <string>
+#include <vector>
 #include <iostream>
 #include <sstream>
 #include <algorithm>
