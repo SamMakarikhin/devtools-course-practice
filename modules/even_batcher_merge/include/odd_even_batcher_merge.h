@@ -7,10 +7,10 @@
 
 std::vector<int> Batcher(const std::vector<int>& vec1,
   const std::vector<int>& vec2);
-std::vector<int> Shuffle(const std::vector<int>& vec);
-std::vector<int> OddEvenMerge(const std::vector<int>& vec1,
+std::vector<int> shuffle(const std::vector<int>& vec);
+std::vector<int> merge_odd_even(const std::vector<int>& vec1,
   const std::vector<int>& vec2);
-std::vector<int> Unshuffle(const std::vector<int>& odd,
+std::vector<int> unshuffle(const std::vector<int>& odd,
   const std::vector<int>& even);
 
 #endif  // MODULES_EVEN_BATCHER_MERGE_INCLUDE_ODD_EVEN_BATCHER_MERGE_H_

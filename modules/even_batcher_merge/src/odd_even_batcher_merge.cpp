@@ -24,7 +24,7 @@ std::vector<int> Batcher(const std::vector<int>& vec1,
   return res;
 }
 
-std::vector<int> Shuffle(const std::vector<int>& vec) {
+std::vector<int> shuffle(const std::vector<int>& vec) {
   std::vector<int> tmp(vec.size());
   for (std::size_t i = 0; i < vec.size() / 2 + vec.size() % 2; i++) {
     tmp[i] = vec[2 * i];
@@ -35,7 +35,7 @@ std::vector<int> Shuffle(const std::vector<int>& vec) {
   return tmp;
 }
 
-std::vector<int> OddEvenMerge(const std::vector<int>& vec1,
+std::vector<int> merge_odd_even(const std::vector<int>& vec1,
   const std::vector<int>& vec2) {
   std::vector<int> res(vec1.size() + vec2.size());
   std::size_t j = 0, k = 0, l = 0;
@@ -54,7 +54,7 @@ std::vector<int> OddEvenMerge(const std::vector<int>& vec1,
   return res;
 }
 
-std::vector<int> Unshuffle(const std::vector<int>& odd,
+std::vector<int> unshuffle(const std::vector<int>& odd,
   const std::vector<int>& even) {
   std::vector<int> res(odd.size() + even.size());
   std::size_t j = 0, k = 0, l = 0;
