@@ -5,7 +5,6 @@
 
 #include <string>
 #include <sstream>
-#include <iostream>
 
 std::string Heap_App::HelpMessage(const char* appname) {
     return std::string("") +
