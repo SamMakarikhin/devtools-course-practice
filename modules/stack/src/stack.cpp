@@ -1,4 +1,4 @@
-// Copyright 2020 Okmyanskiy Andrey
+// Copyright 2020 Okmyanskiy Andrey & Tanskii Yurii
 
 #include "include/stack.h"
 
@@ -12,12 +12,19 @@ Stack::Stack(int size) {
     top = 0;
 }
 
+void Stack::init(const Stack& stack, bool equal) {
+    this->size = stack.size;
+    if (!equal) {
+        this->mas = new double[size];
+    }
+    this->top = stack.top;
+    for (int i = 0; i < top; i++) {
+        this->mas[i] = stack.mas[i];
+    }
+}
+
 Stack::Stack(const Stack& stack) {
-    size = stack.size;
-    mas = new double[size];
-    top = stack.top;
-    for (int i = 0; i < top; i++)
-        mas[i] = stack.mas[i];
+    init(stack, false);
 }
 
 Stack::~Stack() {
@@ -50,11 +57,14 @@ double Stack::get() {
 }
 
 void Stack::operator = (const Stack& stack) {
-    size = stack.size;
-    mas = new double[size];
-    top = stack.top;
-    for (int i = 0; i < top; i++) {
-        mas[i] = stack.mas[i];
+    if (*this != stack) {
+        bool equal = false;
+        if (this->size != stack.size) {
+            delete[] this->mas;
+        } else {
+            equal = true;
+        }
+        init(stack, equal);
     }
 }
 

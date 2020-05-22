@@ -1,0 +1,49 @@
+﻿#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Args
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Args PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a Interpolation Search application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_detects_Wrong_Args
+    COMMAND ${APPLICATION} 1
+)
+
+set_tests_properties (${prefix}_detects_Wrong_Args PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_add_Wrong_Elem
+    COMMAND ${APPLICATION} 1 l 2
+)
+
+set_tests_properties (${prefix}_add_Wrong_Elem PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_get_Result
+    COMMAND ${APPLICATION} 2 9 12 12
+)
+
+set_tests_properties (${prefix}_get_Result PROPERTIES
+    PASS_REGULAR_EXPRESSION "1"
+    LABELS "${MODULE}")

@@ -1,4 +1,4 @@
-// Copyright 2020 Yasakova Anastasia
+// Copyright 2020 Yasakova Anastasia & Sinitsina Maria
 
 #ifndef MODULES_TREES_INCLUDE_TREES_H_
 #define MODULES_TREES_INCLUDE_TREES_H_
@@ -23,12 +23,11 @@ class TreeNode {
     void SetParent(TreeNode* tmp);
 };
 
-
 class Tree {
     TreeNode* root;
     int amount;
  public:
-    explicit Tree(int data_);
+    explicit Tree(int data_ = 0);
     Tree(std::initializer_list<int> l);
     Tree(const Tree& tree);
     ~Tree();
@@ -41,6 +40,5 @@ class Tree {
     TreeNode* FindElemNode(int data_) const;
     void DelElem(int data_);
 };
-
 
 #endif  // MODULES_TREES_INCLUDE_TREES_H_

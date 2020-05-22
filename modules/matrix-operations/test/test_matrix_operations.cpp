@@ -3,6 +3,8 @@
 #include <gtest/gtest.h>
 
 #include <vector>
+#include <string>
+#include <sstream>
 
 #include "include/matrix_operations.h"
 
@@ -32,19 +34,32 @@ TEST(MatrixOperationsTest, Can_Create_Empty_Matrix) {
     EXPECT_EQ(matrix.getData(), goldData);
 }
 
-TEST(MatrixOperationsTest, Can_Create_Matrix) {
+TEST(MatrixOperationsTest, Can_Create_Matrix_From_Vec) {
     // Arrange
-    std::vector<std::vector<double>> data{{2.2, 1.2, 45.2, 7.1},
-                                          {9.1, 2.3, 12.1, 2.3},
-                                          {12.3, 4.5, 6.1, 7.9}};
+    std::vector<double> data{ 0.0, 0.1, 1.0, 1.1, 2.0, 2.1 };
 
     // Act
-    Matrix matrix(3, 4, data);
+    Matrix matrix(3, 2, data);
 
     // Assert
     EXPECT_EQ(3, matrix.getRows());
-    EXPECT_EQ(4, matrix.getCols());
-    EXPECT_NEAR(7.9, matrix.getData()[2U][3U], 0.001);
+    EXPECT_EQ(2, matrix.getCols());
+    EXPECT_NEAR(2.1, matrix.getData()[2U][1U], 0.001);
+}
+
+TEST(MatrixOperationsTest, Can_Create_Matrix) {
+  // Arrange
+  std::vector<std::vector<double>> data{ {2.2, 1.2, 45.2, 7.1},
+                                        {9.1, 2.3, 12.1, 2.3},
+                                        {12.3, 4.5, 6.1, 7.9} };
+
+  // Act
+  Matrix matrix(3, 4, data);
+
+  // Assert
+  EXPECT_EQ(3, matrix.getRows());
+  EXPECT_EQ(4, matrix.getCols());
+  EXPECT_NEAR(7.9, matrix.getData()[2U][3U], 0.001);
 }
 
 TEST(MatrixOperationsTest, Can_Create_Via_Copying) {
@@ -426,4 +441,20 @@ TEST(MatrixOperationsTest, Different_Matrices_Not_Eqal) {
 
     // Act & Assert
     EXPECT_TRUE(matrixA != matrixB);
+}
+
+TEST(MatrixOperationsTest, Can_Print_Matrix) {
+  // Arrange
+  int cols = 2;
+  int rows = 2;
+  Matrix matrix(cols, rows);
+  std::ostringstream stream;
+  std::string expect = "0 0 0 0 ";
+
+  // Act
+  stream << matrix;
+  std::string res = stream.str();
+
+  // Assert
+  EXPECT_TRUE(res == expect);
 }

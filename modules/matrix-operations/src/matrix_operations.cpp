@@ -16,6 +16,22 @@ Matrix::Matrix(const int                              _rows,
                                                                cols(_cols),
                                                                data(_data) {}
 
+Matrix::Matrix(const int _rows, const int _cols, std::vector<double> _data) {
+  rows = _rows;
+  cols = _cols;
+  data = std::vector<std::vector<double>>(rows);
+  for (int i = 0; i < rows; ++i) {
+    data[i] = std::vector<double>(cols);
+  }
+
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < cols; ++j) {
+      int idx = i * cols + j;
+      data[i][j] = _data[idx];
+    }
+  }
+}
+
 Matrix::Matrix(const Matrix& _matrix) : rows(_matrix.rows),
                                         cols(_matrix.cols),
                                         data(_matrix.data) {}
@@ -127,6 +143,9 @@ bool Matrix::operator!= (const Matrix& _matrix) const {
 }
 
 double Matrix::determinant() {
+    if (rows == 2 && cols == 2) {
+      return data[0][0] * data[1][1] - data[0][1] * data[1][0];
+    }
     double sum12;
     double sum22;
     sum12 = 0.0;
@@ -200,4 +219,14 @@ Matrix Matrix::takeInverseMatrix() {
     }
 
     return inv;
+}
+
+std::ostringstream& operator<<(std::ostringstream& os, Matrix& m) {
+  auto data = m.getData();
+  for (int i = 0; i < m.getRows(); ++i) {
+    for (int j = 0; j < m.getCols(); ++j) {
+      os << std::round(data[i][j]) << " ";
+    }
+  }
+  return os;
 }

@@ -1,4 +1,4 @@
-// Copyright 2020 Okmyanskiy Andrey
+// Copyright 2020 Okmyanskiy Andrey & Tanskii Yurii
 
 #ifndef MODULES_STACK_INCLUDE_STACK_H_
 #define MODULES_STACK_INCLUDE_STACK_H_
@@ -10,6 +10,7 @@ class Stack {
     double *mas;
     int size;
     int top;
+    void init(const Stack& stack, bool equal);
  public:
     explicit Stack(int size = sizeDefault);
     Stack(const Stack& stack);

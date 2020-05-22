@@ -1,4 +1,4 @@
-// Copyright 2020 Yasakova Anastasia
+// Copyright 2020 Yasakova Anastasia & Sinitsina Maria
 
 #include <gtest/gtest.h>
 #include "include/trees.h"

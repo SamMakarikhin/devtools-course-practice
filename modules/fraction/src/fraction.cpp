@@ -1,41 +1,41 @@
-// Copyright 2020 Baldin Alexey
+// Copyright 2020  Baldin Alexey & completed Sokolov Nikolay
 
 #include "include/fraction.h"
 #include <string>
 #include <iostream>
 
-Fraction::Fraction(const int& nom, const int& den) {
+Fraction::Fraction(const int& num, const int& den) {
     if (den == 0) {
         denominator_ = 1;
         throw std::string("Denominator can`t be zero. Use denominator = 1");
     } else if (den < 0) {
-        nominator_ = -nom;
+        numerator_ = -num;
         denominator_ = -den;
     } else {
-        nominator_ = nom;
+        numerator_ = num;
         denominator_ = den;
     }
 }
 
 Fraction::Fraction(const Fraction & f) {
-    this->nominator_ = f.getNominator();
-    this->denominator_ = f.getDenominator();
+    this->numerator_ = f.numerator_;
+    this->denominator_ = f.denominator_;
 }
 
-int Fraction::getNominator() const {
-    return nominator_;
+int Fraction::getNumerator() const {
+    return numerator_;
 }
 
 int Fraction::getDenominator() const {
-    if (nominator_ == 0) {
+    if (numerator_ == 0) {
         throw std::string("Nominator = 0. Denominator don`t need.");
     } else {
         return denominator_;
     }
 }
 
-void Fraction::setNominator(const int& nom) {
-    nominator_ = nom;
+void Fraction::setNumerator(const int& num) {
+    numerator_ = num;
 }
 
 void Fraction::setDenominator(const int& den) {
@@ -43,7 +43,7 @@ void Fraction::setDenominator(const int& den) {
         denominator_ = 1;
         throw std::string("Denominator can`t be zero. Use denominator = 1");
     } else if (den < 0) {
-        nominator_ = -nominator_;
+        numerator_ = -numerator_;
         denominator_ = -den;
     } else {
         denominator_ = den;
@@ -51,123 +51,133 @@ void Fraction::setDenominator(const int& den) {
 }
 
 bool Fraction::operator==(const Fraction & f) const {
-    Fraction f1(this->getNominator(), this->getDenominator());
-    Fraction f2(f.getNominator(), f.getDenominator());
+    Fraction f1(this->getNumerator(), this->getDenominator());
+    Fraction f2(f.getNumerator(), f.getDenominator());
 
     f1.fractionReduction();
     f2.fractionReduction();
 
-    return f1.getNominator() == f2.getNominator() &&
+    return f1.getNumerator() == f2.getNumerator() &&
            f1.getDenominator() == f2.getDenominator();
 }
 
 bool Fraction::operator!=(const Fraction & f) const {
-    Fraction f1(this->getNominator(), this->getDenominator());
-    Fraction f2(f.getNominator(), f.getDenominator());
+    Fraction f1(this->getNumerator(), this->getDenominator());
+    Fraction f2(f.getNumerator(), f.getDenominator());
 
     f1.fractionReduction();
     f2.fractionReduction();
 
-    return f1.getNominator() != f2.getNominator() ||
+    return f1.getNumerator() != f2.getNumerator() ||
            f1.getDenominator() != f2.getDenominator();
 }
 
 void Fraction::fractionReduction() {
-    int nodND = nod(nominator_, denominator_);
+    int nodND = nod(numerator_, denominator_);
 
     if (nodND != 1) {
-        nominator_ = nominator_ / nodND;
+        numerator_ = numerator_ / nodND;
         denominator_ = denominator_ / nodND;
     }
 }
 
 Fraction Fraction::operator+(const Fraction & f) const {
-    int nom = this->getNominator() * f.getDenominator() +
-              this->getDenominator() * f.getNominator();
+    int num = this->getNumerator() * f.getDenominator() +
+              this->getDenominator() * f.getNumerator();
     int den = this->getDenominator() * f.getDenominator();
 
-    Fraction sum(nom, den);
+    Fraction sum(num, den);
     sum.fractionReduction();
 
     return sum;
 }
 
 Fraction Fraction::operator-(const Fraction & f) const {
-    int nom = this->getNominator() * f.getDenominator() -
-        this->getDenominator() * f.getNominator();
+    int num = this->getNumerator() * f.getDenominator() -
+        this->getDenominator() * f.getNumerator();
     int den = this->getDenominator() * f.getDenominator();
 
-    Fraction dif(nom, den);
+    Fraction dif(num, den);
     dif.fractionReduction();
 
     return dif;
 }
 
 Fraction Fraction::operator*(const Fraction & f) const {
-    int nom = this->getNominator() * f.getNominator();
+    int num = this->getNumerator() * f.getNumerator();
     int den = this->getDenominator() * f.getDenominator();
 
-    Fraction mult(nom, den);
+    Fraction mult(num, den);
     mult.fractionReduction();
 
     return mult;
 }
 
 Fraction Fraction::operator/(const Fraction & f) const {
-    int nom = this->getNominator() * f.getDenominator();
-    int den = this->getDenominator() * f.getNominator();
+    if (f.getNumerator() != 0) {
+        int num = this->getNumerator() * f.getDenominator();
+        int den = this->getDenominator() * f.getNumerator();
 
-    Fraction division(nom, den);
-    division.fractionReduction();
+        Fraction division(num, den);
+        division.fractionReduction();
 
-    return division;
+        return division;
+    } else {
+        throw std::string("Numerator divider can`t be zero");
+    }
+    return Fraction();
 }
 
 Fraction Fraction::operator+(const int & n) const {
-    int nom = this->getNominator() + this->getDenominator() * n;
+    int num = this->getNumerator() + this->getDenominator() * n;
 
-    Fraction sum(nom, this->getDenominator());
+    Fraction sum(num, this->getDenominator());
     sum.fractionReduction();
 
     return sum;
 }
 
 Fraction Fraction::operator-(const int & n) const {
-    int nom = this->getNominator() - this->getDenominator() * n;
+    int num = this->getNumerator() - this->getDenominator() * n;
 
-    Fraction dif(nom, this->getDenominator());
+    Fraction dif(num, this->getDenominator());
     dif.fractionReduction();
 
     return dif;
 }
 
 Fraction Fraction::operator*(const int & n) const {
-    int nom = this->getNominator() * n;
+    int num = this->getNumerator() * n;
 
-    Fraction mult(nom, this->getDenominator());
+    Fraction mult(num, this->getDenominator());
     mult.fractionReduction();
 
     return mult;
 }
 
 Fraction Fraction::operator/(const int & n) const {
-    int den = this->getDenominator() * n;
+    if (n != 0) {
+        int den = this->getDenominator() * n;
 
-    Fraction division(this->getNominator(), den);
-    division.fractionReduction();
+        Fraction division(this->getNumerator(), den);
+        division.fractionReduction();
 
-    return division;
+        return division;
+    } else {
+        throw std::string("Divider can`t be zero");
+    }
+    return Fraction();
 }
 
 Fraction& Fraction::operator=(const Fraction & f) {
-    this->nominator_ = f.getNominator();
-    this->denominator_ = f.getDenominator();
+    this->numerator_ = f.numerator_;
+    this->denominator_ = f.denominator_;
 
     return *this;
 }
 
 Fraction::operator double() const {
-    return static_cast<double>(nominator_) / denominator_;
+    return static_cast<double>(numerator_) / denominator_;
 }
 
 bool Fraction::operator>(const Fraction & f) {
@@ -201,15 +211,24 @@ bool Fraction::operator<=(const Fraction & f) {
 int Fraction::changeDenominator(const int & den) {
     if (denominator_ < den && den % denominator_ == 0) {
         denominator_ = den;
-        nominator_ *= (den / denominator_);
+        numerator_ *= (den / denominator_);
     } else if (denominator_ > den && denominator_ % den == 0 &&
-               nominator_ % (denominator_ / den) == 0) {
-        nominator_ /= denominator_ / den;
+               numerator_ % (denominator_ / den) == 0) {
+        numerator_ /= denominator_ / den;
         denominator_ = den;
     } else {
         throw std::string("Can`t change denominator for this fraction.");
     }
     return 0;
+}
+
+void Fraction::increaseIntegerTimes(int n) {
+    if (n != 0) {
+        numerator_ *= n;
+        denominator_ *= n;
+    } else {
+        throw std::string("Argument is Zero");
+    }
 }
 
 int nod(int a, int b) {
@@ -240,9 +259,9 @@ Fraction operator+(const int & n, const Fraction & f) {
 }
 
 Fraction operator-(const int & n, const Fraction & f) {
-    int nom = f.getDenominator() * n - f.getNominator();
+    int num = f.getDenominator() * n - f.getNumerator();
 
-    Fraction dif(nom, f.getDenominator());
+    Fraction dif(num, f.getDenominator());
     dif.fractionReduction();
 
     return dif;
@@ -253,9 +272,9 @@ Fraction operator*(const int & n, const Fraction & f) {
 }
 
 Fraction operator/(const int & n, const Fraction & f) {
-    int nom = f.getDenominator() * n;
+    int num = f.getDenominator() * n;
 
-    Fraction division(nom, f.getNominator());
+    Fraction division(num, f.getNumerator());
     division.fractionReduction();
 
     return division;

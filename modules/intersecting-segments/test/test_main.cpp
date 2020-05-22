@@ -1,4 +1,4 @@
-// Copyright 2020 Kukushkina Ksenia
+// Copyright 2020 Kukushkina Ksenia & Maximova Irina
 
 #include <gtest/gtest.h>
 

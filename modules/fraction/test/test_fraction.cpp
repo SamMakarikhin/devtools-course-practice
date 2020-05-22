@@ -1,4 +1,4 @@
-// Copyright 2020 Baldin Alexey
+// Copyright 2020 Baldin Alexey & completed  Sokolov Nikolay
 
 #include <gtest/gtest.h>
 
@@ -11,31 +11,28 @@ class FractionTest : public ::testing::Test {
 
 TEST_F(FractionTest, Can_Create_Fraction_With_Default_constructor) {
     // Arrange
-    // Act
     Fraction f;
 
-    // Assert
-    EXPECT_EQ(0, f.getNominator());
+    // Act & Assert
+    EXPECT_EQ(0, f.getNumerator());
     EXPECT_ANY_THROW(f.getDenominator());
 }
 
 TEST_F(FractionTest, Can_Create_Fraction_With_One_Parameter_constructor) {
     // Arrange
-    // Act
     Fraction f(2);
 
-    // Assert
-    EXPECT_EQ(2, f.getNominator());
+    // Act & Assert
+    EXPECT_EQ(2, f.getNumerator());
     EXPECT_EQ(1, f.getDenominator());
 }
 
 TEST_F(FractionTest, Can_Create_Fraction_With_Two_Parameter_constructor) {
     // Arrange
-    // Act
     Fraction f(1, 2);
 
-    // Assert
-    EXPECT_EQ(1, f.getNominator());
+    // Act & Assert
+    EXPECT_EQ(1, f.getNumerator());
     EXPECT_EQ(2, f.getDenominator());
 }
 
@@ -43,8 +40,7 @@ TEST_F(FractionTest, Denominator_Cant_Be_Zero) {
     // Arrange
     Fraction f1(1, 1);
 
-    // Act
-    // Assert
+    // Act & Assert
     EXPECT_ANY_THROW(f1.setDenominator(0));
     EXPECT_ANY_THROW(Fraction f2(1, 0));
 }
@@ -66,7 +62,7 @@ TEST_F(FractionTest, Equals_Fractions_Is_Equals) {
     Fraction f2;
 
     // Act
-    f2.setNominator(30);
+    f2.setNumerator(30);
     f2.setDenominator(60);
 
     // Assert
@@ -90,8 +86,7 @@ TEST_F(FractionTest, Different_Fractions_Test) {
     Fraction f1(1, 15);
     Fraction f2(3, 5);
 
-    // Act
-    // Assert
+    // Act & Assert
     EXPECT_NE(f1, f2);
 }
 
@@ -132,7 +127,7 @@ TEST_F(FractionTest, Correct_Fraction_Reduction) {
     f.fractionReduction();
 
     // Assert
-    EXPECT_EQ(f.getNominator(), 1);
+    EXPECT_EQ(f.getNumerator(), 1);
     EXPECT_EQ(f.getDenominator(), 2);
 }
 
@@ -145,7 +140,7 @@ TEST_F(FractionTest, Addition_Fractions_Test) {
     Fraction f3 = f1 + f2;
 
     // Assert
-    EXPECT_EQ(f3.getNominator(), 2);
+    EXPECT_EQ(f3.getNumerator(), 2);
     EXPECT_EQ(f3.getDenominator(), 3);
 }
 
@@ -158,7 +153,7 @@ TEST_F(FractionTest, Subtraction_Fractions_Test) {
     Fraction f3 = f1 - f2;
 
     // Assert
-    EXPECT_EQ(f3.getNominator(), -8);
+    EXPECT_EQ(f3.getNumerator(), -8);
     EXPECT_EQ(f3.getDenominator(), 15);
 }
 
@@ -171,7 +166,7 @@ TEST_F(FractionTest, Multiplication_Fractions_Test) {
     Fraction f3 = f1 * f2;
 
     // Assert
-    EXPECT_EQ(f3.getNominator(), 1);
+    EXPECT_EQ(f3.getNumerator(), 1);
     EXPECT_EQ(f3.getDenominator(), 25);
 }
 
@@ -184,7 +179,7 @@ TEST_F(FractionTest, Division_Fractions_Test) {
     Fraction f3 = f1 / f2;
 
     // Assert
-    EXPECT_EQ(f3.getNominator(), 1);
+    EXPECT_EQ(f3.getNumerator(), 1);
     EXPECT_EQ(f3.getDenominator(), 9);
 }
 
@@ -414,7 +409,72 @@ TEST_F(FractionTest, Cant_Change_Denominator_Test) {
     // Arrange
     Fraction f1(1, 15);
 
-    // Act
-    // Assert
+    // Act & Assert
     EXPECT_ANY_THROW(f1.changeDenominator(20));
+}
+
+TEST(Add_test, Still_Add_Operation) {
+    // Arrange
+    Fraction f1(2, 30);
+    Fraction f2(14, 15);
+
+    // Act
+    Fraction f3 = f1+f2;
+    f3.fractionReduction();
+
+    // Assert
+    EXPECT_EQ(f3.getDenominator(), 1);
+    EXPECT_EQ(f3.getDenominator(), 1);
+}
+
+TEST(Add_test, Get_Nom_Reduction) {
+    // Arrange
+    Fraction f1(2, 30);
+
+    // Act
+    f1.fractionReduction();
+
+    // Assert
+    EXPECT_EQ(f1.getNumerator(), 1);
+}
+
+TEST(Add_test, Get_Det_Reduction) {
+    // Arrange
+    Fraction f1(2, 30);
+
+    // Act
+    f1.fractionReduction();
+
+    // Assert
+    EXPECT_EQ(f1.getDenominator(), 15);
+}
+
+TEST(Add_test, Get_Det_Increase) {
+    // Arrange
+    Fraction f1(2, 3);
+
+    // Act
+    f1.increaseIntegerTimes(5);
+
+    // Assert
+    EXPECT_EQ(f1.getDenominator(), 15);
+}
+
+TEST(Add_test, Get_Nom_Increase) {
+    // Arrange
+    Fraction f1(2, 3);
+
+    // Act
+    f1.increaseIntegerTimes(5);
+
+    // Assert
+    EXPECT_EQ(f1.getNumerator(), 10);
+}
+
+TEST(Add_test, Increase_Exeption_Zero) {
+    // Arrange
+    Fraction f1(1, 2);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(f1.increaseIntegerTimes(0));
 }

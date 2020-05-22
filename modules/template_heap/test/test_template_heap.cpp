@@ -1,4 +1,4 @@
-// Copyright 2020 Pauzin Leonid
+// Copyright 2020 Pauzin Leonid & Myshkin Andrey
 
 #include <gtest/gtest.h>
 #include "include/template_heap.h"
@@ -24,7 +24,7 @@ TEST(THeap, Can_insert_value) {
   THeap<int> a;
 
   // Act, Assert
-  ASSERT_NO_THROW(a.Push(3));
+  ASSERT_NO_THROW(a.Push(5));
 }
 
 TEST(THeap, Cam_remove_value) {
@@ -61,19 +61,6 @@ TEST(THeap, Remove_from_empty_heap) {
 
   // Assert
   ASSERT_ANY_THROW(a.Remove());
-}
-
-TEST(THeap, Can_print_heap) {
-  // Arrange
-  THeap<int> a;
-
-  // Act
-  a.Push(5);
-  a.Push(8);
-  a.Push(10);
-
-  // Assert
-  ASSERT_NO_THROW(a.PrintHeap());
 }
 
 TEST(THeap, Can_get_size) {

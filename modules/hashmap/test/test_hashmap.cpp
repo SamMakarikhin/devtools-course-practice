@@ -21,7 +21,6 @@ TEST(HashMapTest, can_get_elems_max_size) {
     ASSERT_EQ(10, map.max_size());
 }
 
-
 TEST(HashMapTest, insertion_test) {
     hashmap<int, double> map(10);
 
@@ -90,6 +89,7 @@ TEST(HashMapTest, get_elem_from_hashmap_intkey) {
 
     ASSERT_EQ(10, map[15]);
 }
+
 TEST(HashMapTest, delete_node_from_hashmap) {
     hashmap<const char*, int> map(10);
     map.insert("Nick", 15);
@@ -110,12 +110,12 @@ TEST(HashMapTest, chain_delete_node_from_hashmap) {
     ASSERT_EQ(1, map.size());
 }
 
-TEST(HashMapTest, delete_node_from_hashmap_check_for_ne) {
+TEST(HashMapTest, delete_node_from_hashmap_check_throw) {
     hashmap<const char*, int> map(4);
     map.insert("Nick", 15);
     map.insert("Ilya", 20);
 
     map.remove("Nick");
 
-    ASSERT_NE(15, map["Nick"]);
+    ASSERT_ANY_THROW(map["Nick"]);
 }

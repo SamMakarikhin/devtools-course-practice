@@ -2,6 +2,7 @@
 
 #include "include/rb_tree.h"
 #include <vector>
+#include <stdexcept>
 
 Node::Node(int _data, Node *_left, Node *_right, Node *_parent, Color _color) :
     data(_data), parent(_parent), left(_left),
@@ -81,7 +82,7 @@ Node* RBTree::find(const int& data) {
 
 void RBTree::insert(Node *node) {
     if (find(node->data) != _NIL)
-        throw "Node already in tree";
+        throw std::invalid_argument("Node already in tree");
 
     Node *tmp = _NIL;
     Node *tmp2 = _root;
@@ -113,7 +114,7 @@ void RBTree::insert(Node *node) {
 void RBTree::remove(const int& data) {
     Node* find_node = find(data);
     if (find_node == _NIL)
-        throw "No that data in tree";
+        throw std::invalid_argument("No that data in tree");
 
     Node *node = find_node;
     Node *tmp = node;

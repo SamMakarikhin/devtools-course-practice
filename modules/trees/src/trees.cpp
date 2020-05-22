@@ -1,4 +1,4 @@
-// Copyright 2020 Yasakova Anastasia
+// Copyright 2020 Yasakova Anastasia & Sinitsina Maria
 
 #include "include/trees.h"
 #include <queue>

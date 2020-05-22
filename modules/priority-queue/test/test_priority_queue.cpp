@@ -172,3 +172,53 @@ TEST_F(PriorityQueueTest, ReturnFalseWhileDeleteMaxFromEmpty) {
     // Assert
     EXPECT_FALSE(res);
 }
+
+TEST_F(PriorityQueueTest, CanExtractKeyMaximum) {
+    // Arrange
+    priority_queue pq;
+    node n1(4, 4);
+    node n2(3, 3);
+    node n3(5, 5);
+    int* p_n;
+    int key = 0;
+
+    // Act
+    pq.insert(n1);
+    pq.insert(n2);
+    pq.insert(n3);
+    key = 3;
+    p_n = pq.extract_key(key);
+
+    // Assert
+    EXPECT_EQ(n2.data, *p_n);
+}
+
+TEST_F(PriorityQueueTest, ReturnNullptrWhileExtractKeyFromEmpty) {
+    // Arrange
+    priority_queue pq;
+    int* p_n;
+    int key;
+
+    // Act
+    key = 10;
+    p_n = pq.extract_key(key);
+
+    // Assert
+    EXPECT_EQ(nullptr, p_n);
+}
+
+TEST_F(PriorityQueueTest, Can_Work_With_Pair) {
+    // Arrange
+    priority_queue pq(std::make_pair(5, 5));
+    node n(1, 1);
+    int* p_n;
+    int key;
+
+    // Act
+    key = 5;
+    pq.insert(n);
+    p_n = pq.extract_key(key);
+
+    // Assert
+    EXPECT_EQ(5, *p_n);
+}

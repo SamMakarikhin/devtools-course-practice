@@ -1,4 +1,4 @@
-// Copyright 2020 Antipin Alexander
+// Copyright 2020 Antipin Alexander & Guschin Alexandr
 
 #include <gtest/gtest.h>
 #include <algorithm>
@@ -20,10 +20,9 @@ TEST(Dheap, is_creating_default_d_heap_correct) {
 TEST(Dheap, is_creating_default_d_heap_return_correct_values) {
     // Arrange
     d_heap a;
-    size_t i = -1;
 
     // Assert
-    EXPECT_EQ(i, a[0]);
+    EXPECT_EQ(-1, a[0]);
 }
 
 TEST(Dheap, can_create_d_heap_with_two_parameters) {
@@ -53,6 +52,25 @@ TEST(Dheap, is_creating_d_heap_with_two_parameters_correct_3) {
 
     // Assert
     EXPECT_EQ(10, a.getSize());
+}
+
+TEST(Dheap, can_find_index_with_value) {
+  // Arrange
+  d_heap a;
+  a.insert(1);
+  a.insert(10);
+
+  // Act & Assert
+  EXPECT_EQ(1, a.getInd(10));
+}
+
+TEST(Dheap, can_return_ULLONG_MAX_when_cannot_find_index_with_value) {
+  // Arrange
+  d_heap a;
+  a.insert(1);
+
+  // Act & Assert
+  EXPECT_EQ(-1, a.getInd(10));
 }
 
 TEST(Dheap, is_creating_d_heap_with_two_parameters_return_correct_values) {
@@ -377,7 +395,7 @@ TEST(Dheap, can_immersion_element_without_throws) {
     a.insert(4);
 
     // Act Assert
-    ASSERT_NO_THROW(a.immersion(0));
+    ASSERT_NO_THROW(a.dive(0));
 }
 
 TEST(Dheap, can_immersion_element_1) {
@@ -388,7 +406,7 @@ TEST(Dheap, can_immersion_element_1) {
     a.insert(5); a.insert(1);
     a.insert(3); a.insert(2);
     a.insert(4);
-    a.immersion(0);
+    a.dive(0);
 
     // Assert
     EXPECT_EQ(1, a[0]);
@@ -403,7 +421,7 @@ TEST(Dheap, can_immersion_element_2) {
     a.insert(2); a.insert(4);
     a.insert(3); a.insert(5);
     a.insert(5); a.insert(1);
-    a.immersion(1);
+    a.dive(1);
 
     // Assert
     EXPECT_EQ(4, a[5]);

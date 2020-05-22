@@ -5,6 +5,7 @@
 #include <initializer_list>
 #include <functional>
 #include <utility>
+#include <stdexcept>
 
 template<typename Key, typename Value>
 class hashnode {
@@ -71,7 +72,7 @@ Value hashmap<Key, Value>::operator[](const Key& key) {
         }
         entry = entry->next;
     }
-    return Value();
+    throw std::invalid_argument("No value with this key");
 }
 
 template <typename Key, typename Value>
@@ -111,7 +112,7 @@ void hashmap<Key, Value>::remove(const Key& key) {
     }
 
     if (entry == nullptr) {
-        return;
+        throw std::invalid_argument("No value with this key");
     } else {
         if (prev == nullptr) {
             _buffer[hashindex] = entry->next;
