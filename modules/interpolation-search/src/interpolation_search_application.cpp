@@ -1,8 +1,6 @@
 // Copyright 2020 Mityagina Daria
 
-#include <vector>
 #include <iostream>
-#include <string>
 #include <sstream>
 #include <algorithm>
 #include "include/interpolation_search_application.h"
