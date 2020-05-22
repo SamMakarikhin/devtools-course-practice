@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> Batcher(std::const vector<int> &in_vec1,
-  std::const vector<int> &in_vec2) {
+std::vector<int> Batcher(const std::vector<int>& in_vec1,
+  const std::vector<int>& in_vec2) {
   std::vector<int> vec1 = Shuffle(in_vec1);
   std::vector<int> vec2 = Shuffle(in_vec2);
   std::size_t size_odd1 = vec1.size() / 2 + vec1.size() % 2;
