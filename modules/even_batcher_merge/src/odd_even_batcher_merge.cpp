@@ -21,7 +21,7 @@ std::vector<int> Batcher(const std::vector<int>& vec1,
   std::vector<int> merge_even(merge_odd_even(even1, even2));
   std::vector<int> res(unshuffle(merge_odd, merge_even));
 
-  return res;  // Res
+  return res;
 }
 
 std::vector<int> shuffle(const std::vector<int>& vec) {
