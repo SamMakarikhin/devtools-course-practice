@@ -5,6 +5,7 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 
 std::string Heap_App::HelpMessage(const char* appname) {
     return std::string("") +
@@ -22,35 +23,35 @@ bool Heap_App::Parsing(int argc, const char** argv) {
         return true;
     }
     catch (std::exception&) {
-        printf("      Input error\n\n%s", HelpMessage(argv[0]).c_str());
         return false;
     }
 }
 
-bool Heap_App::ValidateNumderOfArguments(int argc, const char** argv) {
+bool Heap_App::ValidateNumberOfArguments(int argc, const char** argv) {
     auto no_argumnets = [&argc] { return argc == 1; };
     auto first_arg_is_help = [&argv] { return std::string(argv[1]) == "help"; };
-    bool sts;
 
     if (no_argumnets() || first_arg_is_help()) {
-        printf("%s", HelpMessage(argv[0]).c_str());
         return false;
     }
-
-    sts = Parsing(argc, argv);
-    if (sts == false) return false;
-
     return true;
 }
 
 std::string Heap_App::operator()(int argc, const char** argv) {
-    if (!ValidateNumderOfArguments(argc, argv))
+    std::ostringstream result;
+    if (!ValidateNumberOfArguments(argc, argv)) {
+        result << HelpMessage(argv[0]) << std::endl;
         return "";
+    }
+
+    bool sts;
+    sts = Parsing(argc, argv);
+    if (sts == false) {
+        result << "      Input error\n\n%s" << HelpMessage(argv[0]) << "\n";
+    }
 
     THeap<float> heap(Argc_app);
-    std::ostringstream result;
-
-    for (auto value : heap.HeapSorting())
+    for (auto value : heap.GetVectorHeap())
         result << value << " ";
     result << "\n";
 

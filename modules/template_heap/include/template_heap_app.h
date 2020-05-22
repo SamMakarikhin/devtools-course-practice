@@ -11,7 +11,7 @@ class Heap_App {
 
     std::string HelpMessage(const char* appname);
     bool Parsing(int argc, const char** argv);
-    bool ValidateNumderOfArguments(int argc, const char** argv);
+    bool ValidateNumberOfArguments(int argc, const char** argv);
 
  public:
     Heap_App() = default;

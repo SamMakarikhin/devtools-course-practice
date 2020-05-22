@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 template <typename T>
 class THeap {
@@ -15,7 +16,8 @@ class THeap {
   T Remove();
   size_t GetSize();
   THeap<T>& operator = (const THeap<T>& heap_) = default;
-  std::vector<T> HeapSorting();
+  std::vector<T> GetVectorHeap();
+  
 
  private:
   std::vector<T> vector;
@@ -31,8 +33,7 @@ class THeap {
 template<typename T>
 THeap<T>::THeap(const std::vector<T>& buffer) {
     for (size_t i = 0; i < buffer.size(); i++) {
-        vector.push_back(buffer[i]);
-        Emersion();
+        Push(buffer[i]);
     }
 }
 
@@ -44,7 +45,7 @@ void THeap<T>::Push(T value) {
 
 template<typename T>
 void THeap<T>::Emersion() {
-  int child = vector.size() - 1;
+  int child = (int)vector.size() - 1;
   int parent = GetParent(child);
 
   while (vector[child] > vector[parent] && child >= 0 && parent >= 0) {
@@ -67,7 +68,7 @@ T THeap<T>::Remove() {
   if (vector.size() == 0) {
       throw "The heap does not contain items";
   }
-  int child = vector.size() - 1;
+  int child = (int)vector.size() - 1;
   Swap(child, 0);
   T value = vector.back();
   vector.pop_back();
@@ -87,7 +88,7 @@ void THeap<T>::Immersion() {
   while (true) {
     int left = GetLeftChild(parent);
     int right = GetRightChild(parent);
-    int length = vector.size();
+    int length = (int)vector.size();
     int largest = parent;
 
     if ((left < length) && (vector[left] > vector[largest]))
@@ -121,13 +122,8 @@ size_t THeap<T>::GetSize() {
 }
 
 template <typename T>
-std::vector<T> THeap<T>::HeapSorting() {
-    THeap<T> copy(vector);
-    std::vector<T> result_vector(GetSize());
-    for (size_t index = 0; index < result_vector.size(); ++index) {
-        result_vector[index] = copy.Remove();
-    }
-    return result_vector;
+std::vector<T> THeap<T>::GetVectorHeap() {
+    return vector;
 }
 
 #endif  // MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
